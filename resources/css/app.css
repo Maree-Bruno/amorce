@@ -23,18 +23,20 @@
     --button-default-border-color: rgba(0,0,0,0.1);
     --nav-background-color: #F8F8F8;
 }
-.button-default{
-    border: var(--button-default-border-color) solid 1px;
+.buttons{
     font-family: Inter, sans-serif;
     font-weight: 700;
     border-radius: 8px;
+    max-width: 200px;
+    max-height: 48px;
 }
-.button-confirm{
+.buttons-default{
+    border: var(--button-default-border-color) solid 1px;
+}
+.buttons-confirm{
     background-color: var(--button-background-color);
     border: var(--button-confirm-border-color) solid 1px;
-    font-family: Inter, sans-serif;
-    font-weight: 700;
-    border-radius: 8px;
+
 }
 .button-confirm:hover, .button-default:hover{
     transition: ease-in-out  300ms;

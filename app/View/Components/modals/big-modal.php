@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\button;
+namespace App\View\Components\modals;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class button-confirm extends Component
+class big-modal extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class button-confirm extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.button.button-confirm');
+        return view('components.modals.big-modal');
     }
 }
