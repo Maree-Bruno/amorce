@@ -1,3 +1,70 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    src: url("/public/fonts/Inter_18pt-Regular.ttf");
+}
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    src: url("/public/fonts/Inter_18pt-Bold.ttf");
+}
+
+:root {
+    --nav-item-background-color: rgba(251, 212, 55, 0.1);
+    --nav-item-font-color: #FBD437;
+    --button-background-color: #FFEA93;
+    --button-confirm-border-color: #FBD437;
+    --button-default-border-color: rgba(0,0,0,0.1);
+    --nav-background-color: #F8F8F8;
+}
+.button-default{
+    border: var(--button-default-border-color) solid 1px;
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+}
+.button-confirm{
+    background-color: var(--button-background-color);
+    border: var(--button-confirm-border-color) solid 1px;
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+}
+.button-confirm:hover, .button-default:hover{
+    transition: ease-in-out  300ms;
+    background-color: var(--nav-item-background-color);
+    color: var(--button-confirm-border-color);
+    border: var(--button-confirm-border-color) solid 1px;
+}
+.nav-box-shadow{
+    box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.15);
+}
+.nav-background{
+    background-color: var(--nav-background-color);
+}
+
+.nav_item_hover {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    transition: ease-in-out  300ms;
+}
+
+.nav_item_hover:hover {
+    background-color: var(--nav-item-background-color);
+}
+
+.nav_item_hover:hover svg path {
+    stroke: var(--nav-item-font-color);
+    transition: ease-in-out  300ms;
+}
+
+.nav_item_hover:hover p {
+    color: var(--nav-item-font-color);
+    transition: ease-in-out  300ms;
+}
