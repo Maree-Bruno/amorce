@@ -20,7 +20,7 @@
         <x-navigations.navigation-bar/>
     </div>
 </header>
-<main class="relative">
+<main class="relative flex flex-col gap-4 px-4">
     {{ $slot }}
 </main>
 </body>
