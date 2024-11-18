@@ -9,6 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
+    <script src="//unpkg.com/alpinejs" defer></script>
     @vite('resources/css/app.css')
 
 </head>
@@ -16,10 +17,10 @@
 <header class="w-max">
     <div class="nav-background max-w-52 max-h-screen  p-8  nav-box-shadow flex-col
     justify-center items-center inline-flex">
-        <x-navigations.navigation/>
+        <x-navigations.navigation-bar/>
     </div>
 </header>
-<main class="">
+<main class="relative">
     {{ $slot }}
 </main>
 </body>

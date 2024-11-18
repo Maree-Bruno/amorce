@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\modals;
+namespace App\View\Components\icon;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class big-modal extends Component
+class meeting extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class big-modal extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.modals.big-modal');
+        return view('components.icon.meeting');
     }
 }

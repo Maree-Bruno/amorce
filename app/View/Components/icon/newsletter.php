@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\navigations;
+namespace App\View\Components\icon;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class nav-item extends Component
+class newsletter extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class nav-item extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.navigations.nav-item');
+        return view('components.icon.newsletter');
     }
 }
