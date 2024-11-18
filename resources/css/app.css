@@ -22,6 +22,10 @@
     --button-confirm-border-color: #FBD437;
     --button-default-border-color: rgba(0,0,0,0.1);
     --nav-background-color: #F8F8F8;
+    --modal-bg-color :rgba(217,217,217,0.4);
+}
+.background-color{
+    background-color: var(--nav-item-font-color);
 }
 .buttons{
     font-family: Inter, sans-serif;
@@ -38,7 +42,7 @@
     border: var(--button-confirm-border-color) solid 1px;
 
 }
-.button-confirm:hover, .button-default:hover{
+.buttons-confirm:hover, .buttons-default:hover{
     transition: ease-in-out  300ms;
     background-color: var(--nav-item-background-color);
     color: var(--button-confirm-border-color);
@@ -46,6 +50,13 @@
 }
 .nav-box-shadow{
     box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.15);
+}
+.modal-background-color{
+    background: var(--modal-bg-color);
+    backdrop-filter: blur(1px);
+}
+.modal-box-shadow{
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 .nav-background{
     background-color: var(--nav-background-color);
