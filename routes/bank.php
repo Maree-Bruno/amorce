@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*Route::get('/', [App\Http\Controllers\BankController::class, 'index'])->name('jiri.home');*/
 Route::middleware(['auth', 'verified'])->group(function () {
 
 //index
