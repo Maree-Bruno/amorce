@@ -24,6 +24,12 @@
     --nav-background-color: #F8F8F8;
     --modal-bg-color :rgba(217,217,217,0.4);
 }
+.modal {
+    display: none;
+}
+.modal[x-show="open"] {
+    display: flex;
+}
 
 .box-focus:focus {
     border-color: var(--nav-item-font-color);

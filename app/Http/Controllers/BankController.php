@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\View\Components\icon\bank;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BankController extends Controller
 {
