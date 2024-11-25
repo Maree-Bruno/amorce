@@ -1,5 +1,6 @@
-<nav class="inline-flex items-start justify-start">
-    <ul class="inline-flex items-start justify-start gap-4">
+<nav class="inline-flex items-start justify-start w-full">
+    <h4 class="sr-only">Navigation des fonds</h4>
+    <ul class="inline-flex gap-4 w-full">
         <x-navigations.nav-item>Général</x-navigations.nav-item>
         <x-navigations.nav-item>Fonctionnement</x-navigations.nav-item>
         <x-navigations.nav-item>Spécifique 1</x-navigations.nav-item>

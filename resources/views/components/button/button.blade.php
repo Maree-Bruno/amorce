@@ -7,6 +7,6 @@ nav_item_hover
         <x-dynamic-component :component="'icon.'.$icon"/>
     @endif
     @if(!is_null($slot))
-        <span class="truncate ">{{$slot}}</span>
+        <span class="truncate font-bold">{{$slot}}</span>
     @endif
 </button>

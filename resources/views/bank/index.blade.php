@@ -16,41 +16,46 @@
             </x-modals.little-modal>
         </div>
     </div>
-    <section class="flex flex-row gap-12">
-        <div class="w-3/5">
+    <section class="flex flex-row gap-10">
+        <h3 class="sr-only">Interface de la banque</h3>
+        <div class="w-3/5 border-slate-200 border shadow-md rounded-2xl p-4">
             <x-navigations.bank-nav/>
-            <div class="inline-flex justify-between p-2.5 w-full mt-3">
-                <span class="text-black text-3xl font-semibold font-['Inter'] leading-9">Solde du fond</span>
-                <span class="text-black text-3xl font-semibold font-['Inter'] leading-9">12,000.30 €</span>
-            </div>
-            <div class="grid p-2.5">
-                <div class="flex-col justify-start items-start gap-2.5 inline-flex">
-                    <div class="self-stretch flex-col justify-start items-start flex">
-                        <p class="self-stretch text-black text-base font-normal font-['Inter'] leading-snug">
-                            04/2024
-                        </p>
-                        <div class="self-stretch justify-between items-center inline-flex">
-                            <span class="text-black text-xl font-semibold font-['Inter'] leading-7">
-                                Description
-                            </span>
-                            <div class="self-stretch justify-start items-center gap-6 flex">
-                                <span class="text-right text-black text-xl font-semibold font-['Inter'] leading-7">
-                                    + 200 €
-                                </span>
-                                <a href="#" class="nav_item_hover rounded">
-                                    <span class="relative"><x-icon.more/></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <section>
+                <h4 class="sr-only">Derniers dons du fond</h4>
+                <div class=" border-t border-slate-200 mt-4"></div>
+                <div class="inline-flex justify-between p-2.5 w-full mt-3">
+                    <span class="text-black text-3xl font-semibold font-['Inter']">Solde du fond</span>
+                    <span class="text-black text-3xl font-semibold font-['Inter']">12,000.30 €</span>
+                </div>
+                <div class="flex flex-col gap-2 p-2.5">
+                    <x-bank-item/>
+                    <x-bank-item/>
+                    <x-bank-item/>
+                    <x-bank-item/>
+                    <x-bank-item/>
+                    <x-bank-item/>
+                    <x-bank-item/>
+                </div>
+            </section>
+
+
+        </div>
+        <section class="w-1/4 flex flex-col p-6 border-slate-200 shadow-md border rounded-2xl">
+            <h4 class="text-black text-xl font-bold font-[Inter] mb-2">Derniers dons enregistrés</h4>
+            <div class="flex flex-col">
+                <div class=" border-t border-slate-200 mt-4 mb-4"></div>
+                <div class="flex flex-col gap-4">
+                    <x-last-bank-item/>
+                    <x-last-bank-item/>
+                    <x-last-bank-item/>
+                    <x-last-bank-item/>
+                    <x-last-bank-item/>
+                    <x-last-bank-item/>
+                    <x-last-bank-item/>
+                    <x-last-bank-item/>
                 </div>
             </div>
-        </div>
-        <div class="w-1/4 flex flex-col justify-center p-8">
-            <div class="grid">
-                <h3 class="text-black text-xl font-bold font-[Inter]">Derniers dons enregistrés</h3>
-            </div>
-        </div>
+        </section>
     </section>
 
 </x-app-layout>

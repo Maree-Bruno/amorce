@@ -21,7 +21,7 @@ class BankController extends Controller
      */
     public function create()
     {
-        //
+        //return view('bank.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class BankController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //return view('bank.edit');
     }
 
     /**
@@ -53,7 +53,7 @@ class BankController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //return to_route('bank.show');
     }
 
     /**
@@ -61,6 +61,7 @@ class BankController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //Bank::destroy($bank->id);
+        //return redirect('/bank');
     }
 }

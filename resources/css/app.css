@@ -102,3 +102,16 @@
     color: var(--nav-item-font-color);
     transition: ease-in-out  200ms;
 }
+.nav_item_hover.active {
+    background-color: var(--nav-item-background-color);
+    font-weight: 700;
+}
+
+.nav_item_hover.active a svg path {
+    stroke: var(--nav-item-font-color);
+}
+
+.nav_item_hover.active a p {
+    color: var(--nav-item-font-color);
+}
+

@@ -1,11 +1,12 @@
 @php use Illuminate\Support\Facades\URL; @endphp
-<nav class="flex flex-col justify-start flex-shrink-0 min-h-screen max-h-screen min-w-fit max-w-fit">
+<nav x-data="{ currentUrl: '{{ URL::current() }}' }" class="flex flex-col justify-start flex-shrink-0 min-h-full
+ min-w-fit max-w-fit">
     <h2 class="sr-only">Navigation</h2>
-    <div class="flex flex-col justify-start items-center flex-shrink-0 min-h-screen max-h-screen gap-9 max-w-36">
+    <div class="flex flex-col justify-start items-center flex-shrink-0 min-h-screen max-h-screen gap-6 max-w-36">
         <a class="mt-8" href="/">
             <img src="{{URL('images/logo.png')}}" alt="Logo de l'amorce" class="max-h-fit">
         </a>
-        <ul class=" flex flex-col justify-center gap-9 max-w-36">
+        <ul class=" flex flex-col justify-center gap-3 max-w-52">
             <x-navigations.nav-item icon="home" url="/">Home</x-navigations.nav-item>
             <x-navigations.nav-item icon="bank" url="/bank">Banque</x-navigations.nav-item>
             <x-navigations.nav-item icon="meeting" url="/meetings">Réunion</x-navigations.nav-item>
@@ -23,3 +24,5 @@
         </ul>
     </div>
 </nav>
+
+
