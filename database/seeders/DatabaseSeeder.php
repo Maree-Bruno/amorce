@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Transaction;
+use App\Models\Fund;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,9 +14,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(BankSeeder::class);
         // User::factory(10)->create();
 
+        Fund::factory()
+            ->has(Transaction::factory()
+                ->count(10))
+            ->create([
+                'name' => 'Général'
+            ]);
+        Fund::factory()
+            ->has(Transaction::factory()
+                ->count(10))
+            ->create([
+                'name' => 'Fonctionnement'
+            ]);
+        /*Fund::factory()
+            ->count(3)
+            ->has(Transaction::factory()
+                ->count(10))
+            ->create();*/
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',

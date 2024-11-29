@@ -11,11 +11,19 @@
                                 <span class="text-right text-black text-xl font-semibold font-['Inter']">
                                     + 200 €
                                 </span>
-                <a href="#" class="nav_item_hover p-2 rounded-md">
+                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
+                    <a href="#" class="nav_item_hover p-2 rounded-md block" @click="showModal = true">
                     <span class="relative">
                         <x-icon.more/>
                     </span>
-                </a>
+                    </a>
+                    <x-modals.little-modal>
+                        <ul>
+                            <x-navigations.nav-item icon="edit">Éditer</x-navigations.nav-item>
+                            <x-navigations.nav-item icon="minus">Supprimer</x-navigations.nav-item>
+                        </ul>
+                    </x-modals.little-modal>
+                </div>
             </div>
         </div>
     </div>

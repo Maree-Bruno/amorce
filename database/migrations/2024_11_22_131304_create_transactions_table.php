@@ -9,18 +9,21 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('bank', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->string('description');
             $table->decimal('amount', 10, 2);
-            $table->enum('fund_type', ['Fond général', 'Fond de fonctionnement', 'Fond spécifique 1', 'Fond spécifique 2']);
-            $table->date('transaction_date');
+            $table->date('date');
+            $table->foreignId('fund_id')->constrained('funds')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('bank');
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->dropForeign(['fund_id']);
+        });
+        Schema::dropIfExists('transactions');
     }
 };

@@ -10,6 +10,5 @@
                 Close
             </x-button.secondary-button>
         </x-modals.modal>
-
     </section>
 </x-app-layout>
