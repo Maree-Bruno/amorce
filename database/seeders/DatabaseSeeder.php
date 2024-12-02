@@ -28,11 +28,11 @@ class DatabaseSeeder extends Seeder
             ->create([
                 'name' => 'Fonctionnement'
             ]);
-        /*Fund::factory()
+        Fund::factory()
             ->count(3)
             ->has(Transaction::factory()
                 ->count(10))
-            ->create();*/
+            ->create();
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',

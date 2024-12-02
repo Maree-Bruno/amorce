@@ -2,33 +2,39 @@
 
 namespace App\Livewire;
 
+use App\Models\Transaction;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Transaction;
 
 class FundTable extends Component
 {
     use WithPagination;
 
-    public $transactions;
+    public $total;
+    public $fund_id;
 
-    public function mount()
+    public function mount(): void
     {
-        // Fetch all transactions and store them in the public property
-        $this->transactions = Transaction::all();
+        $this->updateTotalAmount();
     }
+
     #[Computed]
     public function transactions()
     {
-        return $this->transactions
-            ->transactions()
-            ->orderBy('date')
+        return Transaction::orderBy('date', 'desc')
             ->paginate(6);
+    }
+
+    public function updateTotalAmount(): void
+    {
+        $this->total = Transaction::sum('amount');
     }
 
     public function render()
     {
-        return view('livewire.fund-table');
+        return view('livewire.fund-table', [
+            'total' => $this->total,
+        ]);
     }
 }

@@ -2,7 +2,7 @@
     <h4 class="sr-only">Navigation des fonds</h4>
     <ul class="inline-flex gap-2">
         @foreach($funds as $fund)
-            <x-navigations.nav-item href="#">{{$fund->name}}</x-navigations.nav-item>
+            <x-navigations.nav-item href="{{$fund->url}}">{{$fund->name}}</x-navigations.nav-item>
         @endforeach
     </ul>
     <div class="relative ml-auto" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">

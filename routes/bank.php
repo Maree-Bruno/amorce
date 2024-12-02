@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BankController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -10,6 +11,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //create
     Route::get('/bank/create', [App\Http\Controllers\BankController::class, 'create'])
         ->name('bank.create');
+
 //show
     Route::get('/bank/{bank}', [App\Http\Controllers\BankController::class, 'show'])
         ->name('bank.show');
