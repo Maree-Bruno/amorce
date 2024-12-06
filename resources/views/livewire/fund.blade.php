@@ -9,9 +9,9 @@
             <x-modals.little-modal class="left-[calc(50%-100px)] w-[300px] ">
                 <ul class="flex flex-col gap-2">
                     <x-navigations.nav-item url="/funds/create">Un don</x-navigations.nav-item>
-                    <x-navigations.nav-item>Plusieurs dons</x-navigations.nav-item>
-                    <x-navigations.nav-item>Une dépense</x-navigations.nav-item>
-                    <x-navigations.nav-item>Un transfert</x-navigations.nav-item>
+                    <x-navigations.nav-item url="/funds/create">Plusieurs dons</x-navigations.nav-item>
+                    <x-navigations.nav-item url="/funds/create">Une dépense</x-navigations.nav-item>
+                    <x-navigations.nav-item url="/funds/create">Un transfert</x-navigations.nav-item>
                 </ul>
             </x-modals.little-modal>
         </div>

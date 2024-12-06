@@ -1,6 +1,6 @@
 <section class="flex flex-row gap-10">
     <h3 class="sr-only">Interface des fonds</h3>
-    <div class="w-11/12 border-slate-200 border shadow-md rounded-2xl p-4">
+    <div class="min-w-fit w-11/12 border-slate-200 border shadow-md rounded-2xl p-4">
         <livewire:fund-bar-nav/>
         <div class=" border-t border-slate-200 mt-4 mb-4"></div>
         <div class="flex-col justify-start items-start inline-flex w-full">
