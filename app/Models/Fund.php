@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Fund extends Model
 {
-    
+
     use HasFactory;
 
     protected $fillable = [
@@ -18,5 +18,9 @@ class Fund extends Model
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
+    }
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where($field ?? 'id', $value)->withTrashed()->firstOrFail();
     }
 }

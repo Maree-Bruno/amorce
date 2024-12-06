@@ -3,13 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('welcome');
-})->middleware(['auth', 'verified'])->name('home');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -18,5 +18,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-require __DIR__.'/bank.php';
-require __DIR__.'/home.php';
+require __DIR__.'/fund.php';
+require __DIR__.'/detente.php';
+

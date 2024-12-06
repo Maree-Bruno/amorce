@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class BankAddDonation extends Component
+class Fund extends Component
 {
     public function render()
     {
-        return view('livewire.bank-add-donation');
+        return view('livewire.fund');
     }
 }

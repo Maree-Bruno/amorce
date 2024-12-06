@@ -52,7 +52,8 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                             {{-- Previous Page Link --}}
                             @if ($paginator->onFirstPage())
                                 <span aria-disabled="true" aria-label="{{ __('pagination.previous') }}">
-                                    <span class="relative inline-flex items-center px-2 py-2 text-sm font-semibold border
+                                    <span class="relative inline-flex items-center px-2 py-2 text-sm font-semibold
+                                    border rounded-l-md
                                     border-slate-200 text-slate-300 font-[Inter]" aria-hidden="true">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -65,7 +66,8 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                                         x-on:click="{{ $scrollIntoViewJsSnippet }}" dusk="previousPage{{
                                         $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}
                                         .after" class="relative inline-flex items-center px-2 py-2 text-sm font-semibold
-                                        buttons-default font-[Inter]" aria-label="{{ __('pagination.previous') }}">
+                                        buttons-default font-[Inter] rounded-l-md" aria-label="{{ __('pagination
+                                        .previous') }}">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
                                     </svg>
@@ -115,7 +117,8 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                                         x-on:click="{{ $scrollIntoViewJsSnippet }}" dusk="nextPage{{
                                         $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}
                                         .after" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm
-                                        font-semibold buttons-default font-[Inter]" aria-label="{{ __('pagination.next') }}">
+                                        font-semibold buttons-default font-[Inter] rounded-r-md" aria-label="{{ __('pagination
+                                        .next') }}">
                                     Suivant
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -125,7 +128,8 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                             @else
                                 <span aria-disabled="true" aria-label="{{ __('pagination.next') }}">
                                     <span class="relative inline-flex items-center px-2 py-2 -ml-px text-sm
-                                    font-semibold border border-slate-200 text-slate-300 font-[Inter]" aria-hidden="true">
+                                    font-semibold border border-slate-200 text-slate-300 font-[Inter] rounded-r-md"
+                                          aria-hidden="true">
                                         Suivant
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />

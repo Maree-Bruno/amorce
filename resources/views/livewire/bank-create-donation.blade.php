@@ -25,10 +25,10 @@
                 <textarea class="border border-slate-300 rounded-lg" name="description" id="description" cols="30"
                           rows="1"></textarea>
             </div>
+        </div>
+    </form>
             <div class="flex justify-between mt-4">
                 <x-button.secondary-button class="buttons-default">Annuler</x-button.secondary-button>
                 <x-button.button class="buttons-confirm">Confirmer</x-button.button>
             </div>
-        </div>
-    </form>
 </x-modals.modal>

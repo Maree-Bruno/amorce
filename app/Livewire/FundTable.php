@@ -14,6 +14,7 @@ class FundTable extends Component
     public $total;
     public $fund_id;
 
+
     public function mount(): void
     {
         $this->updateTotalAmount();
@@ -22,13 +23,15 @@ class FundTable extends Component
     #[Computed]
     public function transactions()
     {
-        return Transaction::orderBy('date', 'desc')
+        return Transaction::with('fund')
+            ->where('fund_id', $this->fund_id)
+            ->orderBy('date', 'desc')
             ->paginate(6);
     }
 
     public function updateTotalAmount(): void
     {
-        $this->total = Transaction::sum('amount');
+        $this->total = Transaction::where('fund_id', $this->fund_id)->sum('amount');
     }
 
     public function render()

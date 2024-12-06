@@ -1,13 +1,12 @@
 <?php
 
-namespace App\View\Components\navigations;
+namespace App\View\Components\Fund;
 
-use App\Models\Fund;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class navItem extends Component
+class index extends Component
 {
     /**
      * Create a new component instance.
@@ -22,6 +21,6 @@ class navItem extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.navigations.nav-item');
+        return view('components.fund.index');
     }
 }

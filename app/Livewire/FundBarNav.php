@@ -7,14 +7,15 @@ use Livewire\Component;
 
 class FundBarNav extends Component
 {
-public $funds = [];
+    public $funds = [];
+
     public function mount()
     {
         $this->funds = Fund::all();
     }
     public function render()
     {
-        return view('livewire.fund-bar-nav');
+        return view('livewire.fund-bar-nav', ['funds' => $this->funds]);
     }
 
 }
