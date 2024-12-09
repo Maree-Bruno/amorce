@@ -1,0 +1,4 @@
+<x-icon.layout>
+        <path d="M15.8332 4.16669C14.5832 4.16669 13.4998 5.33335 13.3332 5.83335C10.4165 4.58335 4.1665 5.58335 4.1665 10C4.1665 11.5 4.1665 12.5 5.83317 13.75V16.6667H9.1665V15H11.6665V16.6667H14.9998V13.3334C15.8332 12.9167 16.4165 12.5 16.6665 11.6667H18.3332V8.33335H16.6665C16.6665 7.50002 16.2498 7.08335 15.8332 6.66669V4.16669Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M1.6665 7.5V8.33333C1.6665 9.25 2.4165 10 3.33317 10H4.1665" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</x-icon.layout>

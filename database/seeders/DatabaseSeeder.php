@@ -18,20 +18,20 @@ class DatabaseSeeder extends Seeder
 
         Fund::factory()
             ->has(Transaction::factory()
-                ->count(10))
+                ->count(100))
             ->create([
                 'name' => 'Général'
             ]);
         Fund::factory()
             ->has(Transaction::factory()
-                ->count(10))
+                ->count(100))
             ->create([
                 'name' => 'Fonctionnement'
             ]);
         Fund::factory()
-            ->count(3)
+            ->count(10)
             ->has(Transaction::factory()
-                ->count(10))
+                ->count(100))
             ->create();
         User::factory()->create([
             'name' => 'Test User',

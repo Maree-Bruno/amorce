@@ -3,19 +3,26 @@
 namespace App\Livewire;
 
 use App\Models\Fund;
+use App\Models\Transaction;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 class FundBarNav extends Component
 {
-    public $funds = [];
 
     public function mount()
     {
-        $this->funds = Fund::all();
+
     }
+    #[Computed]
+    public function fund()
+    {
+        return Fund::get();
+    }
+
     public function render()
     {
-        return view('livewire.fund-bar-nav', ['funds' => $this->funds]);
+        return view('livewire.fund-bar-nav', ['funds' => $this->fund()]);
     }
 
 }
