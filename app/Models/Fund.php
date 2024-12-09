@@ -19,4 +19,5 @@ class Fund extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
 }
