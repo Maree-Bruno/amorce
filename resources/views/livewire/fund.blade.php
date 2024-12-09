@@ -16,5 +16,5 @@
             </x-modals.little-modal>
         </div>
     </div>
-    <livewire:fund-table/>
+    <livewire:fund-table :$fund/>
 </div>

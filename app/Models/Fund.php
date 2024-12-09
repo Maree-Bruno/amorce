@@ -19,8 +19,4 @@ class Fund extends Model
     {
         return $this->hasMany(Transaction::class);
     }
-    public function resolveRouteBinding($value, $field = null)
-    {
-        return $this->where($field ?? 'id', $value)->withTrashed()->firstOrFail();
-    }
 }

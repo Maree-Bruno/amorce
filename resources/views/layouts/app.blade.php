@@ -17,7 +17,7 @@
 <body class="grid grid-cols-[auto,1fr] h-screen">
 <h1 class="sr-only">{{ config('app.name') }}</h1>
 <header class="w-fit">
-    <div class="nav-background max-w-lg min-w-64 max-h-screen p-4 nav-box-shadow flex-col
+    <div class="nav-background max-w-lg max-h-screen p-4 nav-box-shadow flex-col
     justify-center items-center inline-flex">
         <x-navigations.navigation-bar/>
     </div>

@@ -1,5 +1,5 @@
 <div class="z-50 absolute inset-0 modal-background-color flex items-center justify-center h-screen" x-show="showModal">
-    <div class="w-4/5 max-w-screen-lg max-h[99vh] bg-white border border-gray-300 rounded-xl
+    <div class="w-full min-w-96 max-w-screen-lg max-h[99vh] bg-white border border-gray-300 rounded-xl
     modal-box-shadow p-6 relative z-40" @click.away="showModal = false"
          x-transition:enter="motion-safe:ease-out duration-300"
          x-transition:enter-start="opacity-0 scale-90"

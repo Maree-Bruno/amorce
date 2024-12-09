@@ -31,8 +31,8 @@
                                     </a>
                                     <x-modals.little-modal>
                                         <ul>
-                                            <x-navigations.nav-item icon="edit">Éditer</x-navigations.nav-item>
-                                            <x-navigations.nav-item icon="minus">Supprimer</x-navigations.nav-item>
+                                            <x-navigations.nav-item url="#" icon="edit">Éditer</x-navigations.nav-item>
+                                            <x-navigations.nav-item url="#" icon="minus">Supprimer</x-navigations.nav-item>
                                         </ul>
                                     </x-modals.little-modal>
                                 </div>
@@ -42,7 +42,7 @@
                 @endforeach
                 <div class=" border-b border-slate-200 mt-4 mb-4 w-full "></div>
                 <div class="w-full mt-auto">
-                    {{$this->transactions->links('vendor.livewire.custom-pagination', data:['scrollTo'=>false])}}
+                    {{$this->transactions->links('vendor.livewire.custom-pagination')}}
                 </div>
             </div>
         </div>

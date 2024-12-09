@@ -9,6 +9,7 @@ class BankAddMultipleDonation extends Component
 {
     use WithFileUploads;
 
+
     public function render()
     {
         return view('livewire.bank-add-multiple-donation');
