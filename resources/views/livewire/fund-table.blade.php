@@ -38,7 +38,7 @@
                             </span>
                             <div class="justify-between items-center gap-6 flex">
                                 <div class="flex justify-end w-1/4">
-                                <span class="text-right text-black text-lg font-medium font-['Inter'] pl-2.5 ">
+                                <span class="text-right text-black text-lg font-medium font-['Inter'] pl-5 ">
                                    {{$transaction->amount}}
                                 </span>
                                 </div>
@@ -50,9 +50,8 @@
                                     </a>
                                     <x-modals.little-modal>
                                         <ul>
-                                            <x-navigations.nav-item url="#" icon="edit">Éditer</x-navigations.nav-item>
-                                            <x-navigations.nav-item url="#" icon="minus">Supprimer
-                                            </x-navigations.nav-item>
+                                            <livewire:navigations.nav-item url="#" icon="edit" slot="Éditer"/>
+                                            <livewire:navigations.nav-item url="#" icon="minus" slot="Supprimer"/>
                                         </ul>
                                     </x-modals.little-modal>
                                 </div>
@@ -62,7 +61,7 @@
                 @endforeach
                 <div class=" border-b border-slate-200 mt-4 mb-4 w-full "></div>
                 <div class="w-full mt-auto">
-                    {{$this->transactions->links('vendor.livewire.custom-pagination')}}
+                    {{$this->transactions->links('vendor.livewire.custom-pagination', data:['scrollTo'=>false]) }}
                 </div>
             </div>
         </div>
