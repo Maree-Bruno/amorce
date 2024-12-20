@@ -6,20 +6,14 @@
             <img src="{{URL('images/logo.png')}}" alt="Logo de l'amorce" class="max-h-fit max-w-fit w-36">
         </a>
         <ul class=" flex flex-col justify-center gap-3">
-            <livewire:navigations.nav-item icon="home" url="/dashboard" slot="Tableau de bord"></livewire:navigations
-                .nav-item>
-            <livewire:navigations.nav-item icon="bank" url="/funds/" slot="Fonds"></livewire:navigations.nav-item>
-            {{--            <livewire:navigations.nav-item icon="meeting" url="/meetings" >Réunion</livewire:navigations
-            .nav-item>
-                        <livewire:navigations.nav-item icon="task" url="/task" >Tâches</livewire:navigations
-                        .nav-item>--}}
-            <livewire:navigations.nav-item icon="detente" url="/detente" slot="Détente" ></livewire:navigations
-                .nav-item>
-            {{--      <livewire:navigations.nav-item icon="newsletter" url="/newsletter"
-            >Newsletter</livewire:navigations
-            .nav-item>
-                  <livewire:navigations.nav-item icon="user" url="/users" >Users</livewire:navigations.nav-item>--}}
-            <livewire:navigations.nav-item icon="user" url="/profile" slot="Profil"></livewire:navigations.nav-item>
+            <livewire:navigations.nav-item icon="home" url="/dashboard" slot="Tableau de bord"/>
+            <livewire:navigations.nav-item icon="bank" url="/funds/" slot="Fonds"/>
+            {{--            <livewire:navigations.nav-item icon="meeting" url="/meetings" slot="Réunion"/>
+                        <livewire:navigations.nav-item icon="task" url="/task" slot="Tâches"/>--}}
+            <livewire:navigations.nav-item icon="detente" url="/detente" slot="Détente"/>
+            {{--      <livewire:navigations.nav-item icon="newsletter" url="/newsletter" slot="Newsletter">
+                  <livewire:navigations.nav-item icon="user" url="/users"/ slot="Users">--}}
+            <livewire:navigations.nav-item icon="user" url="/profile" slot="Profil"/>
             <li>
                 <form action="{{route('logout')}}" method="post">
                     @csrf

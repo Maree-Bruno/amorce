@@ -12,7 +12,7 @@
     <link rel="icon" href="{{URL('/images/favicon-96x96.png')}}">
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script> <!-- Livewire -->
+    <script src="{{ mix('js/app.js') }}"/>
 
     @vite('resources/css/app.css') <!-- Vite for CSS -->
 </head>

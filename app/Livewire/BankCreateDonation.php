@@ -24,12 +24,10 @@ class BankCreateDonation extends Component
     public function save(): void
     {
         $this->form->store();
-        $this->form->reset();
-
     }
     public function render()
     {
-        return view('livewire.bank-create-donation', ['funds' => $this->funds]);
+        return view('livewire.bank-create-donation', ['funds' => $this->funds, 'selectedFund' => $this->selectedFund]);
     }
 
 }
