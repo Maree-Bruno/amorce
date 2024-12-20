@@ -27,7 +27,7 @@
             <div class=" border-b border-slate-200 mb-4 w-full "></div>
             <div class="flex-col justify-start items-start flex gap-2.5 w-full">
                 @foreach($this->transactions as $transaction)
-                    <div class=" w-full">
+                    <div class="w-full" wire:key="{{$transaction->id}}">
                         <div class="grid grid-cols-3 items-center ">
                             <p class=" text-black text-base font-medium font-['Inter'] text-left pl-2.5 ">
                                 {{$transaction->date->format('m-Y')}}
@@ -38,17 +38,19 @@
                             </span>
                             <div class="justify-between items-center gap-6 flex">
                                 <div class="flex justify-end w-1/4">
-                                <span class="text-right text-black text-lg font-medium font-['Inter'] pl-5 ">
+                                <span class="text-right text-black text-lg font-medium font-['Inter'] pl-5 "
+                                      style="color: {{$transaction->amount < 0 ? 'red' : 'green'}};">
                                    {{$transaction->amount}}
                                 </span>
                                 </div>
-                                <div x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                                    <a href="#" class="nav_item_hover p-2 rounded-md block" @click="showModal = true">
+                                <div x-data="{ 'showLittleModal': false }" @keydown.escape="showLittleModal = false">
+                                    <a href="#" class="nav_item_hover p-2 rounded-md block" @click="showLittleModal =
+                                    true">
                                 <span class="relative">
                                      <x-icon.more/>
                                  </span>
                                     </a>
-                                    <x-modals.little-modal>
+                                    <x-modals.little-modal x-show="showLittleModal">
                                         <ul>
                                             <livewire:navigations.nav-item url="#" icon="edit" slot="Éditer"/>
                                             <livewire:navigations.nav-item url="#" icon="minus" slot="Supprimer"/>
@@ -60,9 +62,9 @@
                     </div>
                 @endforeach
                 <div class=" border-b border-slate-200 mt-4 mb-4 w-full "></div>
-                <div class="w-full mt-auto">
-                    {{$this->transactions->links('vendor.livewire.custom-pagination', data:['scrollTo'=>false]) }}
-                </div>
+                    <div class="w-full mt-auto">
+                        {{$this->transactions->links('vendor.livewire.custom-pagination', data:['scrollTo'=>false]) }}
+                    </div>
             </div>
         </div>
     </div>
