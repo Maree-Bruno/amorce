@@ -2,7 +2,7 @@
         <h1 class="text-[#2c2c2c] text-2xl font-semibold font-['Inter']">
             Ajouter un don à un fond
         </h1>
-        <form wire:submit="save" class="mt-4">
+        <form wire:submit="save" class="mt-4 ">
             @csrf
             <div class="flex flex-col gap-4">
                 <div class="flex flex-col">
@@ -17,17 +17,17 @@
                            wire:model.blur="form.amount">
                 </div>
                 <div class="flex justify-between items-end gap-4">
-                    <div class="flex flex-col gap-2 w-full">
+                    <div class="flex flex-col w-full">
                         <label class="text-[#2c2c2c] text-lg font-semibold font-['Inter']" for="fund">
                             Fond bénéficiaire
                         </label>
                         <select id="fund"
                                 wire:model.blur="form.fund_id"
                                 class="w-full border border-slate-300 rounded-lg">
+                            <option value="" selected>Sélectionner un fond</option>
                             @foreach($funds as $fund)
                                 <option value="{{ $fund->id }}" wire:key="{{$fund->id}}">{{ $fund->name }}</option>
                             @endforeach
-                            <option value="create" wire:model="selectedFund">Créer un fond</option>
                         </select>
                     </div>
                 </div>
@@ -56,12 +56,14 @@
                 </div>
             </div>
             <div class="flex justify-between mt-4">
-                <x-button.secondary-button icon="close" class="buttons-default" @click="showCreateDonation =false">
+                <x-button.secondary-button icon="close" class="buttons-default self-start" @click="showCreateDonation
+                =false">
                     Annuler
                 </x-button.secondary-button>
-                <x-button.button icon="validate" class="buttons-confirm">
+                <x-button.button icon="validate" class="buttons-confirm self-end">
                     Confirmer
                 </x-button.button>
+
             </div>
         </form>
     </x-modals.modal>

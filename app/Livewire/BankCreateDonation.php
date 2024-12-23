@@ -4,30 +4,35 @@ namespace App\Livewire;
 
 use App\Livewire\Form\TransactionsForm;
 use App\Models\Fund as FundModel;
+use App\Models\Transaction;
 use Livewire\Component;
 
 class BankCreateDonation extends Component
 {
+
     public $funds;
     public $transaction;
     public TransactionsForm $form;
-    public $selectedFund= '';
     public $feedback = '';
 
-    public function mount(){
+    public function mount(Transaction $transaction)
+    {
         $this->funds = FundModel::get();
+        $this->form->setTransactions($transaction);
     }
+
     public function retrievingFunds()
     {
-        return $this->funds->transactions()->get('fund_id');
+        return Transaction::whereIn('fund_id', $this->funds->pluck('id'))->get();
     }
-    public function save(): void
+    public function save()
     {
         $this->form->store();
+        return $this->redirect('/funds');
     }
     public function render()
     {
-        return view('livewire.bank-create-donation', ['funds' => $this->funds, 'selectedFund' => $this->selectedFund]);
+        return view('livewire.bank-create-donation', ['funds' => $this->funds]);
     }
 
 }

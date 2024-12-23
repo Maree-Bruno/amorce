@@ -43,20 +43,6 @@
                                    {{$transaction->amount}}
                                 </span>
                                 </div>
-                                <div x-data="{ 'showLittleModal': false }" @keydown.escape="showLittleModal = false">
-                                    <a href="#" class="nav_item_hover p-2 rounded-md block" @click="showLittleModal =
-                                    true">
-                                <span class="relative">
-                                     <x-icon.more/>
-                                 </span>
-                                    </a>
-                                    <x-modals.little-modal x-show="showLittleModal">
-                                        <ul>
-                                            <livewire:navigations.nav-item url="#" icon="edit" slot="Éditer"/>
-                                            <livewire:navigations.nav-item url="#" icon="minus" slot="Supprimer"/>
-                                        </ul>
-                                    </x-modals.little-modal>
-                                </div>
                             </div>
                         </div>
                     </div>

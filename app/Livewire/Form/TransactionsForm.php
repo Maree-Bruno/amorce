@@ -37,12 +37,13 @@ class TransactionsForm extends Form
     {
         $this->validate();
 
-        $this->transaction->update($this->except('transaction'));
+        $this->transaction->update($this->all());
     }
     public function store(): void
     {
         $this->validate();
-        Transaction::create($this->all());
+        Transaction::create($this->except('transaction'));
+        $this->reset();
     }
 
 }
