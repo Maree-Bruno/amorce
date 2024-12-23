@@ -16,14 +16,14 @@
 
     @vite('resources/css/app.css') <!-- Vite for CSS -->
 </head>
-<body class="grid grid-cols-[auto,1fr] h-screen">
+<body class="main-template">
 <h1 class="sr-only">{{ config('app.name') }}</h1>
-<header class="w-fit">
+<header class="w-fit sidebar">
     <div class="nav-background max-w-lg max-h-screen p-4 nav-box-shadow flex-col justify-center items-center inline-flex">
         <livewire:navigations.navigation-bar/>
     </div>
 </header>
-<main class="relative flex flex-col gap-4 p-8">
+<main class="relative flex flex-col gap-4 p-8 main-content">
     {{ $slot }}
 </main>
 </body>

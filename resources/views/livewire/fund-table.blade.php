@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class=" border-b border-slate-200 mb-4 w-full "></div>
-            <div class="flex-col justify-start items-start flex gap-2.5 w-full">
+            <div class="flex-col justify-start items-start flex gap-4 w-full">
                 @foreach($this->transactions as $transaction)
                     <div class="w-full" wire:key="{{$transaction->id}}">
                         <div class="grid grid-cols-3 items-center ">
