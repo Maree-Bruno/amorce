@@ -6,7 +6,7 @@
 'showCreateTransfer' : false,
 }">
     <div class="flex justify-between items-center w-11/12">
-        <h2 class="text-black text-5xl font-bold font-[Inter] p-2.5">Fonds</h2>
+        <h2 class="text-black text-5xl font-bold p-2.5">Fonds</h2>
         <div class="relative">
             <x-button.secondary-button class="buttons-confirm shadow-md" icon="plus" @click="showLittleModal = true">
                 Ajouter

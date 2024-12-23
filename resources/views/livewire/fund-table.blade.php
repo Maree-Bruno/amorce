@@ -30,16 +30,16 @@
                 @foreach($this->transactions as $transaction)
                     <div class="w-full" wire:key="{{$transaction->id}}">
                         <div class="grid grid-cols-3 items-center ">
-                            <p class=" text-black text-base font-medium font-['Inter'] text-left pl-2.5 ">
+                            <p class=" text-black text-base font-medium  text-left pl-2.5 ">
                                 {{$transaction->date->format('m-Y')}}
                             </p>
-                            <span class="text-black text-lg font-medium font-['Inter'] truncate
+                            <span class="text-black text-lg font-medium  truncate
                             text-left pl-2.5 pr-2.5">
                                 {{$transaction->description}}
                             </span>
                             <div class="justify-between items-center gap-6 flex">
                                 <div class="flex justify-end w-1/4">
-                                <span class="text-right text-black text-lg font-medium font-['Inter'] pl-5 "
+                                <span class="text-right text-black text-lg font-medium  pl-5 "
                                       style="color: {{$transaction->amount < 0 ? 'red' : 'green'}};">
                                    {{$transaction->amount}}
                                 </span>

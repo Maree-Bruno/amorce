@@ -22,6 +22,8 @@ class TransactionFactory extends Factory
             'description'=>$this->faker->words(2,true),
             'amount'=>$this->faker->randomFloat(2,-10000,10000),
             'date' => Carbon::create($this->faker->dateTimeBetween('-3 years', 'now')),
+            'identity'=>$this->faker->name(),
+            'account'=>$this->faker->iban('be'),
             'fund_id' => 1,
         ];
     }
