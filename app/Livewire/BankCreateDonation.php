@@ -28,6 +28,7 @@ class BankCreateDonation extends Component
     public function save()
     {
         $this->form->store();
+        $this->feedback = 'Transaction enregistrée !';
         return $this->redirect('/funds');
     }
     public function render()

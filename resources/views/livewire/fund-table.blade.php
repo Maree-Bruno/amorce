@@ -1,4 +1,5 @@
 <section class="flex flex-row gap-10 ">
+
     <h3 class="sr-only">Interface des fonds</h3>
     <div class="max-w-screen-xl w-11/12 border-slate-200 border shadow-md rounded-2xl p-4">
             <livewire:fund-bar-nav/>
