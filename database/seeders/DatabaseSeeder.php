@@ -14,24 +14,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         Fund::factory()
             ->has(Transaction::factory()
-                ->count(100))
+                ->count(1))
             ->create([
                 'name' => 'Général'
             ]);
         Fund::factory()
             ->has(Transaction::factory()
-                ->count(100))
+                ->count(1))
             ->create([
                 'name' => 'Fonctionnement'
             ]);
         Fund::factory()
-            ->count(10)
+            ->count(4)
             ->has(Transaction::factory()
-                ->count(100))
+                ->count(1))
             ->create();
         User::factory()->create([
             'name' => 'Test User',

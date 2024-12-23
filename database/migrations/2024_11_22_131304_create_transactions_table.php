@@ -11,9 +11,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
-            $table->decimal('amount', 10, 2);
             $table->date('date');
+            $table->decimal('amount', 15, 2);
+            $table->string('account', 34)->nullable();;
+            $table->string('identity')->nullable();
+            $table->string('description')->nullable();
             $table->foreignId('fund_id')->constrained('funds')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
