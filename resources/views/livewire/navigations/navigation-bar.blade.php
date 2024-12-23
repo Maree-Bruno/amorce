@@ -1,5 +1,6 @@
 @php use Illuminate\Support\Facades\URL; @endphp
-<nav x-data="{ currentUrl: '{{ URL::current() }}' }" class="flex flex-col justify-start flex-shrink-0 min-h-full">
+<nav x-data="{ currentUrl: '{{ URL::current() }}'}" class="flex flex-col justify-start flex-shrink-0 min-h-full
+overflow-y-auto md:block">
     <h2 class="sr-only">Navigation</h2>
     <div class="flex flex-col justify-start items-center flex-shrink-0 min-h-screen max-h-screen gap-6">
         <a class="mt-8" href="{{ route('dashboard') }}">

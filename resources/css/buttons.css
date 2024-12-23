@@ -1,0 +1,25 @@
+.buttons{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+    max-width: 200px;
+    max-height: 48px;
+
+}
+.button-nav{
+    justify-content: flex-start;
+}
+.buttons-default{
+    border: var(--button-default-border-color) solid 1px;
+}
+.buttons-confirm{
+    background-color: var(--button-background-color);
+    border: var(--button-confirm-border-color) solid 1px;
+
+}
+.buttons-confirm:hover, .buttons-default:hover{
+    transition: ease-in-out  200ms;
+    background-color: var(--nav-item-background-color);
+    color: var(--button-confirm-border-color);
+    border: var(--button-confirm-border-color) solid 1px;
+}

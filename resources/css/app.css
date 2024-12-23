@@ -1,3 +1,8 @@
+@import "layout.css";
+@import "nav.css";
+@import "modals.css";
+@import "buttons.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,13 +29,6 @@
     --nav-background-color: #F8F8F8;
     --modal-bg-color :rgba(217,217,217,0.4);
 }
-.modal {
-    display: none;
-}
-.modal[x-show="open"] {
-    display: flex;
-}
-
 .box-focus:focus {
     border-color: var(--nav-item-font-color);
     outline: none;
@@ -40,78 +38,4 @@
 }
 .background-color{
     background-color: var(--nav-item-font-color);
-}
-.buttons{
-    font-family: Inter, sans-serif;
-    font-weight: 700;
-    border-radius: 8px;
-    max-width: 200px;
-    max-height: 48px;
-
-}
-.button-nav{
-    justify-content: flex-start;
-}
-.buttons-default{
-    border: var(--button-default-border-color) solid 1px;
-}
-.buttons-confirm{
-    background-color: var(--button-background-color);
-    border: var(--button-confirm-border-color) solid 1px;
-
-}
-.buttons-confirm:hover, .buttons-default:hover{
-    transition: ease-in-out  200ms;
-    background-color: var(--nav-item-background-color);
-    color: var(--button-confirm-border-color);
-    border: var(--button-confirm-border-color) solid 1px;
-}
-.nav-box-shadow{
-    box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.15);
-}
-.modal-background-color{
-    background: var(--modal-bg-color);
-    backdrop-filter: blur(1px);
-}
-.modal-box-shadow{
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-}
-.nav-background{
-    background-color: var(--nav-background-color);
-}
-
-.nav_item_hover {
-    font-family: Inter, sans-serif;
-    font-weight: 700;
-    transition: ease-in-out  200ms;
-}
-
-.nav_item_hover:hover {
-    background-color: var(--nav-item-background-color);
-}
-
-.nav_item_hover:hover svg path {
-    stroke: var(--nav-item-font-color);
-    transition: ease-in-out  200ms;
-}
-
-.nav_item_hover:hover p {
-    color: var(--nav-item-font-color);
-    transition: ease-in-out  200ms;
-}
-.nav_item_hover:hover span {
-    color: var(--nav-item-font-color);
-    transition: ease-in-out  200ms;
-}
-.nav_item_hover.active {
-    background-color: var(--nav-item-background-color);
-    font-weight: 700;
-}
-
-.nav_item_hover.active a svg path {
-    stroke: var(--nav-item-font-color);
-}
-
-.nav_item_hover.active a p {
-    color: var(--nav-item-font-color);
 }
