@@ -20,7 +20,6 @@ class BankTransfert extends Component
 
     public function save()
     {
-        // On suppose qu’ici on veut toujours faire un transfert
         $this->form->storeTransfer();
 
         $this->feedback = 'Transfert enregistré !';
