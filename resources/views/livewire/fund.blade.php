@@ -12,27 +12,27 @@
                 Ajouter
             </x-button.secondary-button>
             <x-modals.little-modal class="left-[calc(50%-100px)] w-[300px]" x-show="showLittleModal">
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-2 items-start">
                     <x-button.secondary-button
-                        class="button-nav"
+                        class="button-nav justify-start"
                         @click="showCreateDonation = true"
                     >
                         Un don
                     </x-button.secondary-button>
                     <x-button.secondary-button
-                        class="button-nav"
+                        class="button-nav justify-start"
                         @click="showCreateDonations = true"
                     >
                         Plusieurs dons
                     </x-button.secondary-button>
                     <x-button.secondary-button
-                        class="button-nav"
+                        class="button-nav justify-start"
                         @click="showCreateSpent = true"
                     >
                         Une dépense
                     </x-button.secondary-button>
                     <x-button.secondary-button
-                        class="button-nav"
+                        class="button-nav justify-start"
                         @click="showCreateTransfer = true"
                     >
                         Un transfert
