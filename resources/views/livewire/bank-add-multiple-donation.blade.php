@@ -15,11 +15,46 @@
                 </label>
             </div>
         </div>
+
+        @if ($csvRecords)
+            <div class="mt-4">
+                <div class="overflow-auto max-h-96 border border-slate-300 rounded-lg">
+                    <table class="table-auto w-full border-collapse">
+                        <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border border-slate-300 px-4 py-2">Date</th>
+                            <th class="border border-slate-300 px-4 py-2">Montant</th>
+                            <th class="border border-slate-300 px-4 py-2">Description</th>
+                            <th class="border border-slate-300 px-4 py-2">Fond</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($csvRecords as $index => $record)
+                            <tr>
+                                <td class="border border-slate-300 px-4 py-2">{{ $record[0] }}</td>
+                                <td class="border border-slate-300 px-4 py-2">{{ $record[2] }}</td>
+                                <td class="border border-slate-300 px-4 py-2">{{ $record[8] }}</td>
+                                <td class="border border-slate-300 px-4 py-2">
+                                    <select wire:model="selectedFunds.{{ $index }}" class="border border-slate-200 p-2 rounded-lg w-full">
+                                        @foreach($funds as $fund)
+                                            <option value="{{ $fund->id }}">{{ $fund->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        @endif
+
         @if (session()->has('message'))
-            <div class="alert alert-success">{{ session('message') }}</div>
+            <div class="alert alert-success mt-4">{{ session('message') }}</div>
         @endif
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="alert alert-danger mt-4">
                 {{ implode(', ', $errors->all()) }}
             </div>
         @endif

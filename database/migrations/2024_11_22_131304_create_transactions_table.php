@@ -13,8 +13,8 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->decimal('amount', 15, 2);
-            $table->string('account', 34)->nullable();;
-            $table->string('identity')->nullable();
+            $table->string('account', 255)->nullable();
+            $table->string('identity', 255)->nullable();
             $table->string('description')->nullable();
             $table->foreignId('fund_id')->constrained('funds')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

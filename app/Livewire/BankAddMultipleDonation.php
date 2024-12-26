@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Transaction;
+use App\Models\Fund;
 use League\Csv\Reader;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -10,42 +11,66 @@ use Livewire\WithFileUploads;
 class BankAddMultipleDonation extends Component
 {
     use WithFileUploads;
-    public $csvFile;
 
-    public function import()
+    public $csvFile;
+    public $csvRecords = []; // Les données du fichier CSV
+    public $selectedFunds = []; // Fonds sélectionnés pour chaque ligne
+
+    public function updatedCsvFile()
     {
+        // Valider le fichier CSV
         $this->validate([
             'csvFile' => 'required|file|mimes:csv,txt',
         ]);
 
-        // Ouvrir le fichier CSV
+        // Lire les données du fichier CSV
         $csvFile = Reader::createFromPath($this->csvFile->getRealPath(), 'r');
-        $csvFile->setHeaderOffset(null); // Utilisez les indices de ligne (pas d'en-tête)
+        $csvFile->setHeaderOffset(null);
 
-        // Parcourir les enregistrements du CSV
-        foreach ($csvFile->getRecords() as $record) {
-            // Nettoyage de la valeur 'amount' pour enlever les virgules et garder seulement le format décimal correct
-            $amount = str_replace(',', '', $record[2]); // Enlève les virgules pour les milliers
-            $amount = number_format($amount, 2, '.', ''); // Formate le nombre avec un point décimal
+        // Charger les enregistrements dans $csvRecords
+        $this->csvRecords = iterator_to_array($csvFile->getRecords());
 
-            // Insérer la transaction dans la base de données
+        // Initialiser les fonds sélectionnés avec la valeur par défaut (1)
+        $this->selectedFunds = array_fill(0, count($this->csvRecords), 1);
+    }
+    public function import()
+    {
+        $this->validate([
+            'selectedFunds' => 'required|array',
+            'selectedFunds.*' => 'required|integer|exists:funds,id',
+        ]);
+
+        foreach ($this->csvRecords as $index => $record) {
+            $amount = str_replace(',', '', $record[2]);
+            $amount = number_format($amount, 2, '.', '');
+
+            // Hacher les données sensibles
+            $hashedAccount = hash('sha256', $record[3]);
+            $hashedIdentity = hash('sha256', $record[5]);
+
             Transaction::create([
                 'date' => \Carbon\Carbon::parse($record[0]), // Conversion de la date
-                'amount' => $amount, // Insertion de la valeur de 'amount' propre
-                'account' => $record[3], // Compte
-                'identity' => $record[5], // Identité
-                'description' => $record[8], // Description
-                'fund_id' => 1 // Identifiant du fonds
+                'amount' => $amount,
+                'account' => $hashedAccount, // Compte haché
+                'identity' => $hashedIdentity, // Identité hachée
+                'description' => $record[8],
+                'fund_id' => $this->selectedFunds[$index], // Fond choisi pour cette ligne
             ]);
         }
 
-        // Message de succès
-        session()->flash('message', 'Fichier importé avec succès !');
+        $this->csvRecords = [];
+        $this->csvFile = null;
+
+        $this->dispatch('transactionsImported');
+
+        session()->flash('message', 'Fichier importé avec succès avec les fonds choisis !');
     }
 
 
     public function render()
     {
-        return view('livewire.bank-add-multiple-donation');
+        $funds = Fund::all(); // Charger tous les fonds disponibles
+
+        return view('livewire.bank-add-multiple-donation', compact('funds'));
     }
 }

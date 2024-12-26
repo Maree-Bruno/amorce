@@ -41,7 +41,7 @@
             </x-modals.little-modal>
         </div>
     </div>
-        <livewire:fund-table :$fund/>
+    <livewire:fund-table :fund="$fund" name="fund-table" />
     <div>
         <div x-show="showCreateDonation" x-cloak>
             <livewire:bank-create-donation/>

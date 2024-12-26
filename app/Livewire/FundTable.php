@@ -17,13 +17,14 @@ class FundTable extends Component
     public $sortField = 'date';
     public $sortDirection = 'desc';
 
-
+    protected $listeners = ['transactionsImported' => 'refreshFunds'];
 
     public function mount(FundModel $fund): void
     {
         $this->fund = $fund;
         $this->updateTotalAmount();
     }
+
 
     #[Computed]
     public function transactions()
@@ -48,6 +49,11 @@ class FundTable extends Component
             $this->sortDirection = 'asc';
         }
         $this->sortField = $field;
+    }
+    public function refreshFunds()
+    {
+        $this->updateTotalAmount();      // On recalcule le total
+        $this->resetPage();              // (Optionnel) Revenir à la page 1 de la pagination
     }
     public function render()
     {
