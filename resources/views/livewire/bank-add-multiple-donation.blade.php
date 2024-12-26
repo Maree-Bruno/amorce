@@ -23,8 +23,8 @@
                         <thead>
                         <tr class="bg-gray-100">
                             <th class="border border-slate-300 px-4 py-2">Date</th>
-                            <th class="border border-slate-300 px-4 py-2">Montant</th>
                             <th class="border border-slate-300 px-4 py-2">Description</th>
+                            <th class="border border-slate-300 px-4 py-2">Montant</th>
                             <th class="border border-slate-300 px-4 py-2">Fond</th>
                         </tr>
                         </thead>
@@ -32,8 +32,8 @@
                         @foreach($csvRecords as $index => $record)
                             <tr>
                                 <td class="border border-slate-300 px-4 py-2">{{ $record[0] }}</td>
-                                <td class="border border-slate-300 px-4 py-2">{{ $record[2] }}</td>
                                 <td class="border border-slate-300 px-4 py-2">{{ $record[8] }}</td>
+                                <td class="border border-slate-300 px-4 py-2">{{ $record[2] }}</td>
                                 <td class="border border-slate-300 px-4 py-2">
                                     <select wire:model="selectedFunds.{{ $index }}" class="border border-slate-200 p-2 rounded-lg w-full">
                                         @foreach($funds as $fund)
