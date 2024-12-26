@@ -7,6 +7,8 @@ use Livewire\Form;
 
 class TransactionsForm extends Form
 {
+    public $deficit_fund_id;
+    public $benefit_fund_id;
     public $description;
     public $transaction;
     #[Validate]
@@ -45,5 +47,19 @@ class TransactionsForm extends Form
         Transaction::create($this->except('transaction'));
         $this->reset();
     }
-
+    public function storeTransfer()
+    {
+        Transaction::create([
+            'fund_id'    => $this->deficit_fund_id,
+            'amount'     => -1 * $this->amount,
+            'description'=> $this->description,
+            'date'=>$this->date
+        ]);
+        Transaction::create([
+            'fund_id'    => $this->benefit_fund_id,
+            'amount'     => $this->amount,
+            'description'=> $this->description,
+            'date'=>$this->date
+        ]);
+    }
 }
