@@ -43,11 +43,16 @@ class BankAddMultipleDonation extends Component
         foreach ($this->csvRecords as $index => $record) {
             $amount = str_replace(',', '', $record[2]);
             $amount = number_format($amount, 2, '.', '');
+
+            // Hacher les données sensibles
+            $hashedAccount = hash('sha256', $record[3]);
+            $hashedIdentity = hash('sha256', $record[5]);
+
             Transaction::create([
                 'date' => \Carbon\Carbon::parse($record[0]), // Conversion de la date
                 'amount' => $amount,
-                'account' => $record[3],
-                'identity' => $record[5],
+                'account' => $hashedAccount, // Compte haché
+                'identity' => $hashedIdentity, // Identité hachée
                 'description' => $record[8],
                 'fund_id' => $this->selectedFunds[$index], // Fond choisi pour cette ligne
             ]);
@@ -56,8 +61,11 @@ class BankAddMultipleDonation extends Component
         $this->csvRecords = [];
         $this->csvFile = null;
 
+        $this->dispatch('transactionsImported');
+
         session()->flash('message', 'Fichier importé avec succès avec les fonds choisis !');
     }
+
 
     public function render()
     {
