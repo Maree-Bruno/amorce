@@ -37,7 +37,11 @@
                             class="w-full border border-slate-300 rounded-lg">
                         <option value="" selected>Sélectionner un fond</option>
                         @foreach($funds as $fund)
-                            <option value="{{ $fund->id }}" wire:key="deficit-{{ $fund->id }}">{{ $fund->name }}</option>
+                            @if($fund->id != $form->benefit_fund_id)
+                            <option value="{{ $fund->id }}" wire:key="deficit-{{ $fund->id }}">
+                                {{ $fund->name }}
+                            </option>
+                            @endif
                         @endforeach
                     </select>
                     @error('form.fund_id') <span class="error text-red-500">{{ $message }}</span> @enderror
@@ -53,7 +57,11 @@
                             class="w-full border border-slate-300 rounded-lg">
                         <option value="" selected>Sélectionner un fond</option>
                         @foreach($funds as $fund)
-                            <option value="{{ $fund->id }}" wire:key="benefit-{{ $fund->id }}">{{ $fund->name }}</option>
+                            @if($fund->id != $form->deficit_fund_id)
+                                <option value="{{ $fund->id }}" wire:key="benefit-{{ $fund->id }}">
+                                    {{ $fund->name }}
+                                </option>
+                            @endif
                         @endforeach
                     </select>
                     @error('form.fund_id') <span class="error text-red-500">{{ $message }}</span> @enderror

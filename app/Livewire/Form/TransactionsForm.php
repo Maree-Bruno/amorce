@@ -53,13 +53,15 @@ class TransactionsForm extends Form
             'fund_id'    => $this->deficit_fund_id,
             'amount'     => -1 * $this->amount,
             'description'=> $this->description,
-            'date'=>$this->date
+            'date'       => $this->date
         ]);
+
         Transaction::create([
             'fund_id'    => $this->benefit_fund_id,
             'amount'     => $this->amount,
             'description'=> $this->description,
-            'date'=>$this->date
+            'date'       => $this->date
         ]);
     }
+
 }
