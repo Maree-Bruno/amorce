@@ -14,6 +14,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="main-template flex">
+<h1 class="sr-only">{{ config('app.name') }}</h1>
 <header class="sidebar w-64 bg-slate-50">
     <div class="nav-background p-4 nav-box-shadow flex flex-col items-center">
         <livewire:navigations.navigation-bar/>
