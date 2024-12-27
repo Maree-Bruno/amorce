@@ -1,12 +1,14 @@
 .main-template {
     min-height: 100vh;
     display: grid;
-    grid-template-areas:  "sidebar main-content";
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-areas: "sidebar main-content";
+    grid-template-columns: 256px 1fr;
 }
 .sidebar {
     grid-area: sidebar;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
 .main-content {

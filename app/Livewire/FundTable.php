@@ -16,6 +16,7 @@ class FundTable extends Component
     public FundModel $fund;
     public $sortField = 'date';
     public $sortDirection = 'desc';
+    public $perPage = 8;
 
     protected $listeners = ['transactionsImported' => 'refreshFunds'];
 
@@ -32,7 +33,7 @@ class FundTable extends Component
         return $this->fund
             ->hasMany(Transaction::class, 'fund_id')
             ->orderBy($this->sortField, $this->sortDirection)
-            ->paginate(8);
+            ->paginate($this->perPage);
     }
 
     public function updateTotalAmount(): void
@@ -52,8 +53,8 @@ class FundTable extends Component
     }
     public function refreshFunds()
     {
-        $this->updateTotalAmount();      // On recalcule le total
-        $this->resetPage();              // (Optionnel) Revenir à la page 1 de la pagination
+        $this->updateTotalAmount();
+        $this->resetPage();
     }
     public function render()
     {

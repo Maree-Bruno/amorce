@@ -6,24 +6,21 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <!-- Fonts -->
+    <!-- Fonts / Scripts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
     <link rel="icon" href="{{URL('/images/favicon-96x96.png')}}">
-
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"/>
-
-    @vite('resources/css/app.css') <!-- Vite for CSS -->
+    <script src="{{ mix('js/app.js') }}"></script>
+    @vite('resources/css/app.css')
 </head>
-<body class="main-template">
-<h1 class="sr-only">{{ config('app.name') }}</h1>
-<header class="w-fit sidebar">
-    <div class="nav-background max-w-lg max-h-screen p-4 nav-box-shadow flex-col justify-center items-center inline-flex">
+<body class="main-template flex">
+<header class="sidebar w-64 bg-slate-50">
+    <div class="nav-background p-4 nav-box-shadow flex flex-col items-center">
         <livewire:navigations.navigation-bar/>
     </div>
 </header>
-<main class="relative flex flex-col gap-4 p-8 main-content">
+
+<main class="relative flex flex-col p-8 w-full main-content">
     {{ $slot }}
 </main>
 </body>
