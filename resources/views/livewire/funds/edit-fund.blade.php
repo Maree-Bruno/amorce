@@ -1,9 +1,9 @@
 <x-modals.modal>
     <h4 class="text-2xl font-semibold">Modifier un fond</h4>
     <form wire:submit.prevent="update">
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 mt-4">
             <div class="flex flex-col gap-2">
-                <span class="text-lg font-semibold">Selectionner le fond à modifier</span>
+                <span class="text-lg font-semibold">Sélectionner le fond à modifier</span>
                 <select wire:model="fundId" name="fund" id="fund" class="border border-slate-300 rounded-lg">
                     <option value="">Sélectionnez un fond</option>
                     @foreach($funds as $fund)
@@ -26,7 +26,7 @@
                 =false">
                 Annuler
             </x-button.secondary-button>
-            <x-button.button class="buttons-confirm">
+            <x-button.button class="buttons-confirm" icon="validate">
                 Confirmer
             </x-button.button>
 

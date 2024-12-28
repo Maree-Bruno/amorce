@@ -20,7 +20,7 @@ class DeleteFund extends Component
         $fund = Fund::find($this->fundId);
 
         if ($fund) {
-            $fund->delete(); // Soft delete
+            $fund->delete();
             session()->flash('message', 'Le fond a été supprimé avec succès.');
         } else {
             session()->flash('error', 'Le fond est introuvable.');

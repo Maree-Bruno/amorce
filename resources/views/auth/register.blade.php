@@ -23,7 +23,7 @@
             @enderror
         </div>
         <div class="flex flex-row justify-between">
-            <a href="/" class="underline place-self-center box-focus">Déja un compte ?</a>
+            <a href="{{ route('login') }}" class="underline place-self-center box-focus">Déja un compte ?</a>
             <x-button.button class="buttons-confirm place-self-center box-focus">S'inscrire</x-button.button>
         </div>
     </form>

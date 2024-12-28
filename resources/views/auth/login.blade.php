@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form class="w-full flex flex-col" action="{{route('login')}}" method="post" >
+    <form class="w-full flex flex-col" action="{{route('login')}}" method="post">
         @csrf
         <div class="flex flex-col mb-5">
             <x-form.input-label for="email" class="">Email</x-form.input-label>
@@ -23,9 +23,14 @@
                 <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Se souvenir de moi</span>
             </label>
         </div>
-        <div class="flex flex-row justify-between">
-            <a href="/" class="underline place-self-center box-focus">Mot de passe oublié ?</a>
-            <x-button.button class="buttons-confirm place-self-center box-focus">Se connecter</x-button.button>
+        <div class="flex flex-row justify-between items-center">
+
+            <a href="{{ route('password.request') }}" class="underline box-focus">Mot de passe oublié ?</a>
+            <x-button.button class="buttons-confirm box-focus">Se connecter</x-button.button>
+        </div>
+        <div class="flex flex-col gap-4 items-center justify-center mt-4">
+            <a href="{{ route('register') }}" class="underline box-focus">Pas encore de
+                compte ?</a>
         </div>
     </form>
 </x-guest-layout>
