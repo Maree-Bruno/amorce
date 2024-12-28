@@ -11,6 +11,8 @@
                        name="amount"
                        id="amount"
                        placeholder="0€"
+                       step="0.01"
+                       value="{{ isset($form->amount) ? number_format($form->amount, 2, ',', ' ') . '€' : '' }}"
                        wire:model.blur="form.amount">
                 @error('form.amount') <span class="error text-red-500">{{ $message }}</span> @enderror
             </div>

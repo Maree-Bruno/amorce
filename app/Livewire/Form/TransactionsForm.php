@@ -30,7 +30,7 @@ class TransactionsForm extends Form
     {
         return [
             'fund_id' => 'required',
-            'amount' => 'required',
+            'amount' => 'required|numeric',
             'date' => 'required',
             'description' => 'nullable',
         ];

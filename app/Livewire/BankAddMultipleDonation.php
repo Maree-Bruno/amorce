@@ -13,24 +13,24 @@ class BankAddMultipleDonation extends Component
     use WithFileUploads;
 
     public $csvFile;
-    public $csvRecords = []; // Les données du fichier CSV
-    public $selectedFunds = []; // Fonds sélectionnés pour chaque ligne
+    public $csvRecords = [];
+    public $selectedFunds = [];
 
     public function updatedCsvFile()
     {
-        // Valider le fichier CSV
+
         $this->validate([
             'csvFile' => 'required|file|mimes:csv,txt',
         ]);
 
-        // Lire les données du fichier CSV
+
         $csvFile = Reader::createFromPath($this->csvFile->getRealPath(), 'r');
         $csvFile->setHeaderOffset(null);
 
-        // Charger les enregistrements dans $csvRecords
+
         $this->csvRecords = iterator_to_array($csvFile->getRecords());
 
-        // Initialiser les fonds sélectionnés avec la valeur par défaut (1)
+
         $this->selectedFunds = array_fill(0, count($this->csvRecords), 1);
     }
     public function import()
@@ -44,17 +44,17 @@ class BankAddMultipleDonation extends Component
             $amount = str_replace(',', '', $record[2]);
             $amount = number_format($amount, 2, '.', '');
 
-            // Hacher les données sensibles
+
             $hashedAccount = hash('sha256', $record[3]);
             $hashedIdentity = hash('sha256', $record[5]);
 
             Transaction::create([
-                'date' => \Carbon\Carbon::parse($record[0]), // Conversion de la date
+                'date' => \Carbon\Carbon::parse($record[0]),
                 'amount' => $amount,
-                'account' => $hashedAccount, // Compte haché
-                'identity' => $hashedIdentity, // Identité hachée
+                'account' => $hashedAccount,
+                'identity' => $hashedIdentity,
                 'description' => $record[8],
-                'fund_id' => $this->selectedFunds[$index], // Fond choisi pour cette ligne
+                'fund_id' => $this->selectedFunds[$index],
             ]);
         }
 
@@ -69,7 +69,7 @@ class BankAddMultipleDonation extends Component
 
     public function render()
     {
-        $funds = Fund::all(); // Charger tous les fonds disponibles
+        $funds = Fund::all();
 
         return view('livewire.bank-add-multiple-donation', compact('funds'));
     }
