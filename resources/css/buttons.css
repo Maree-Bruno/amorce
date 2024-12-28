@@ -23,3 +23,20 @@
     color: var(--button-confirm-border-color);
     border: var(--button-confirm-border-color) solid 1px;
 }
+.buttons-danger{
+    border: var(--button-danger-border-color) solid 1px;
+}
+.buttons-danger:hover{
+    border: var(--button-danger-border-color) solid 1px;
+    transition: ease-in-out  200ms;
+    background-color: var(--button-danger-bg-color);
+    color: var(--button-danger-color);
+}
+.buttons-danger:hover span{
+    transition: ease-in-out  200ms;
+    color: var(--button-danger-color);
+}
+.buttons-danger:hover svg path{
+    transition: ease-in-out  200ms;
+    stroke: var(--button-danger-color);
+}
