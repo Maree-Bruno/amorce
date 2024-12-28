@@ -28,6 +28,9 @@
     --button-default-border-color: rgba(0,0,0,0.1);
     --nav-background-color: #F8F8F8;
     --modal-bg-color :rgba(217,217,217,0.4);
+    --button-danger-bg-color:rgba(255, 0, 0,0.1);
+    --button-danger-color:rgba(255, 0, 0,1);
+    --button-danger-border-color:rgba(255, 0, 0,0.7);
 }
 .box-focus:focus {
     border-color: var(--nav-item-font-color);
