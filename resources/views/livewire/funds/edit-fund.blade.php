@@ -7,7 +7,11 @@
                 <select wire:model="fundId" name="fund" id="fund" class="border border-slate-300 rounded-lg">
                     <option value="">Sélectionnez un fond</option>
                     @foreach($funds as $fund)
-                        <option value="{{ $fund->id }}" wire:key="{{$fund->id }}">{{ $fund->name }}</option>
+                        @unless($fund->isProtected())
+                            <option value="{{ $fund->id }}" wire:key="{{ $fund->id }}">
+                                {{ $fund->name }}
+                            </option>
+                        @endunless
                     @endforeach
                 </select>
             </div>

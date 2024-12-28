@@ -14,6 +14,10 @@ class Fund extends Model
     protected $fillable = [
         'name',
     ];
+    public function isProtected()
+    {
+        return in_array($this->id, [1, 2]);
+    }
 
     public function transactions(): HasMany
     {
