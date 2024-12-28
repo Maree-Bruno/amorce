@@ -11,7 +11,7 @@
                    wire:model.blur="name">
         </div>
         <div class="flex justify-between mt-4">
-            <x-button.secondary-button icon="close" class="buttons-default self-start" @click="showCreateDonation
+            <x-button.secondary-button icon="close" class="buttons-default self-start" @click="showCreateFund
                 =false">
                 Annuler
             </x-button.secondary-button>
