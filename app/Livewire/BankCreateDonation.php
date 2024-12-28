@@ -32,7 +32,11 @@ class BankCreateDonation extends Component
         return $this->redirect('/funds');
     }
     public function render()
-    {
+    { $this->funds = $this->funds->map(function ($fund) {
+        $fund->formatted_amount = number_format($fund->amount, 2, ',', ' ') . '€';
+        return $fund;
+    });
+
         return view('livewire.bank-create-donation', ['funds' => $this->funds]);
     }
 

@@ -55,6 +55,10 @@ class Edit extends Component
 
     public function render()
     {
+        $this->funds = $this->funds->map(function ($fund) {
+            $fund->formatted_amount = number_format($fund->amount, 2, ',', ' ') . '€';
+            return $fund;
+        });
         return view('livewire.transactions.edit', [
             'transaction' => $this->transaction,
             'funds' => $this->funds,

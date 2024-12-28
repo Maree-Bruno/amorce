@@ -21,7 +21,8 @@
             <div class="flex-col justify-start items-start w-full">
                 <div class="flex flex-row justify-between w-full pl-2 pr-2">
                     <h4 class="font-semibold text-3xl">Solde</h4>
-                    <span class="font-semibold text-3xl">{{ number_format($total, 2) }}</span>
+                    <span class="font-semibold text-3xl">{{isset($total) ? number_format($total, 2, ',', '
+                                         ') . ' '.'€' : ''}}</span>
                 </div>
                 <div class="border-b border-slate-200 mt-4 w-full"></div>
                 <div class="w-full">
@@ -70,7 +71,8 @@
                                     ['transaction' =>
                                     $transaction->id])}}"
                                        wire:navigate>
-                                        {{$transaction->amount}}
+                                        {{isset($transaction->amount) ? number_format($transaction->amount, 2, ',', '
+                                         ') . ' '.'€' : ''}}
                                     </a>
                                 </td>
                             </tr>

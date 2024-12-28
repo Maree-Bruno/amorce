@@ -12,6 +12,7 @@
                        name="amount"
                        id="amount"
                        placeholder="0€"
+                       step="0.01"
                        wire:model.blur="form.amount">
                 @error('form.amount') <span class="error text-red-500">{{ $message }}</span> @enderror
             </div>
@@ -37,11 +38,13 @@
                             class="w-full border border-slate-300 rounded-lg">
                         <option value="" selected>Sélectionner un fond</option>
                         @foreach($funds as $fund)
-                            @if($fund->id != $form->benefit_fund_id)
-                            <option value="{{ $fund->id }}" wire:key="deficit-{{ $fund->id }}">
-                                {{ $fund->name }}
-                            </option>
-                            @endif
+                            @unless($fund->isProtected())
+                                @if($fund->id != $form->benefit_fund_id)
+                                    <option value="{{ $fund->id }}" wire:key="{{ $fund->id }}">
+                                        {{ $fund->name }}
+                                    </option>
+                                @endif
+                            @endunless
                         @endforeach
                     </select>
                     @error('form.fund_id') <span class="error text-red-500">{{ $message }}</span> @enderror
@@ -57,11 +60,13 @@
                             class="w-full border border-slate-300 rounded-lg">
                         <option value="" selected>Sélectionner un fond</option>
                         @foreach($funds as $fund)
-                            @if($fund->id != $form->deficit_fund_id)
-                                <option value="{{ $fund->id }}" wire:key="benefit-{{ $fund->id }}">
-                                    {{ $fund->name }}
-                                </option>
-                            @endif
+                            @unless($fund->isProtected())
+                                @if($fund->id != $form->deficit_fund_id)
+                                    <option value="{{ $fund->id }}" wire:key="{{ $fund->id }}">
+                                        {{ $fund->name }}
+                                    </option>
+                                @endif
+                            @endunless
                         @endforeach
                     </select>
                     @error('form.fund_id') <span class="error text-red-500">{{ $message }}</span> @enderror
@@ -85,7 +90,7 @@
                 =false">
                 Annuler
             </x-button.secondary-button>
-            <x-button.button icon="validate" class="buttons-confirm self-end"  @click="click = true; setTimeout(
+            <x-button.button icon="validate" class="buttons-confirm self-end" @click="click = true; setTimeout(
                 () => click = false, 1000)">
                 Confirmer
             </x-button.button>

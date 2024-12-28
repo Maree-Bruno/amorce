@@ -10,11 +10,13 @@
                         Montant
                     </label>
                     <input class="border border-slate-300 rounded-lg"
-                           type="number"
+                           type="text"
                            name="amount"
                            id="amount"
-                           placeholder="0€"
+                           placeholder="0,00€"
+                           value="{{ isset($form->amount) ? number_format($form->amount, 2, ',', ' ') . '€' : '' }}"
                            wire:model.blur="form.amount">
+
                     @error('form.amount') <span class="error text-red-500">{{ $message }}</span> @enderror
                 </div>
                 <div class="flex justify-between items-end gap-4">
