@@ -8,6 +8,7 @@ use Livewire\Component;
 class DeleteFund extends Component
 {
     public $fundId;
+    public $feedback = '';
     public $funds = [];
 
     public function mount()
@@ -25,7 +26,6 @@ class DeleteFund extends Component
         } else {
             session()->flash('error', 'Le fond est introuvable.');
         }
-
         return $this->redirect('/funds');
     }
 
