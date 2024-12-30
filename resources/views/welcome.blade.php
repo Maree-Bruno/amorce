@@ -1,5 +1,6 @@
+@php use App\Models\User; @endphp
 <x-app-layout>
-    <h2 class="text-black text-5xl font-bold font-[Inter] p-2.5">Bienvenue !</h2>
+    <h2 class=" text-5xl font-bold p-2.5">Bienvenue {{Auth::user()->name}}!</h2>
     <section x-data="{ showModal: false, showCreate: false }" @keydown.escape.window="showModal = false; showCreate = false">
         <x-button.secondary-button class="buttons-confirm" @click="showModal = true">
             Open modal

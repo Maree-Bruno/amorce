@@ -21,4 +21,5 @@ require __DIR__.'/auth.php';
 require __DIR__.'/fund.php';
 require __DIR__.'/detente.php';
 require __DIR__.'/transaction.php';
+require __DIR__.'/calendar.php';
 

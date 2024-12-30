@@ -1,10 +1,10 @@
 <?php
 
-use App\Livewire\Detente\Detente;
+use App\Livewire\Calendar\Calendar;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
 //index
-    Route::get('/detente', Detente::class)->name('detente');
+    Route::get('/calendar', Calendar::class)->name('calendar');
 });
