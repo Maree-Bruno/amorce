@@ -1,7 +1,19 @@
 <x-modals.modal>
     <form wire:submit.prevent="save">
+
         @csrf
         <div class="flex flex-col gap-4">
+            <div class="flex justify-between items-center">
+                <p class="font-semibold text-xl">{{$transaction->description}}</p>
+                <x-button.secondary-button
+                    class="buttons-danger"
+                    icon="trash"
+                    wire:click="deleteTransaction"
+                    title="Supprimer cette transaction">
+                    Supprimer cette transaction
+                </x-button.secondary-button>
+
+            </div>
             <div class="flex flex-col">
                 <label class=" text-lg font-semibold " for="amount">
                     Montant
@@ -59,7 +71,7 @@
                     </textarea>
             </div>
         </div>
-        <div class="flex justify-between items-center px-8 py-4">
+        <div class="flex justify-between items-center mt-4">
             <x-button.secondary-button
                 class="buttons-default"
                 icon="close"
@@ -69,13 +81,6 @@
             <x-button.button class="buttons-confirm" icon="edit">
                 Modifier
             </x-button.button>
-            <x-button.secondary-button
-                class="buttons-danger"
-                icon="trash"
-                wire:click="deleteTransaction"
-            title="Supprimer cette transaction">
-                Supprimer cette transaction
-            </x-button.secondary-button>
         </div>
     </form>
 </x-modals.modal>

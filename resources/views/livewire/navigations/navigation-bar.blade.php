@@ -9,8 +9,8 @@ overflow-y-auto md:block">
         <ul class=" flex flex-col justify-center gap-3">
             <livewire:navigations.nav-item icon="home" url="/dashboard" slot="Tableau de bord"/>
             <livewire:navigations.nav-item icon="bank" url="/funds/" slot="Fonds"/>
-            {{--            <livewire:navigations.nav-item icon="meeting" url="/meetings" slot="Réunion"/>
-                        <livewire:navigations.nav-item icon="task" url="/task" slot="Tâches"/>--}}
+         {{--               <livewire:navigations.nav-item icon="meeting" url="/meetings" slot="Réunion"/>--}}
+                        <livewire:navigations.nav-item icon="calendar" url="/calendar" slot="Calendrier"/>
             <livewire:navigations.nav-item icon="detente" url="/detente" slot="Détente"/>
             {{--      <livewire:navigations.nav-item icon="newsletter" url="/newsletter" slot="Newsletter">
                   <livewire:navigations.nav-item icon="user" url="/users"/ slot="Users">--}}
