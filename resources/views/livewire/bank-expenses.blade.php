@@ -1,10 +1,10 @@
 <x-modals.modal>
-    <h3 class="text-[#2c2c2c] text-2xl font-semibold ">Ajouter une dépense</h3>
+    <h3 class=" text-2xl font-semibold ">Ajouter une dépense</h3>
     <form wire:submit="save" class="mt-4 ">
         @csrf
         <div class="flex flex-col gap-4">
             <div class="flex flex-col">
-                <label class="text-[#2c2c2c] text-lg font-semibold " for="amount">
+                <label class=" text-lg font-semibold " for="amount">
                     Montant
                 </label>
                 <input class="border border-slate-300 rounded-lg"
@@ -18,7 +18,7 @@
             </div>
             <div class="flex justify-between items-end gap-4">
                 <div class="flex flex-col w-full">
-                    <label class="text-[#2c2c2c] text-lg font-semibold " for="fund">
+                    <label class=" text-lg font-semibold " for="fund">
                         Fond déficitaire
                     </label>
                     <select id="fund"
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="flex flex-col">
-                <label class="text-[#2c2c2c] text-lg font-semibold " for="date">
+                <label class=" text-lg font-semibold " for="date">
                     Date
                 </label>
                 <input
@@ -45,7 +45,7 @@
                 @error('form.date') <span class="error text-red-500">{{ $message }}</span> @enderror
             </div>
             <div class="flex flex-col">
-                <label class="text-[#2c2c2c] text-lg font-semibold " for="description">
+                <label class=" text-lg font-semibold " for="description">
                     Description
                 </label>
                 <textarea class="border border-slate-300 rounded-lg"
