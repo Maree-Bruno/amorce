@@ -1,10 +1,10 @@
 <x-modals.modal>
-    <h3 class="text-[#2c2c2c] text-2xl font-semibold">Ajouter plusieurs dons</h3>
+    <h3 class= "text-2xl font-semibold">Ajouter plusieurs dons</h3>
     <form wire:submit.prevent="import" class="mt-4">
         @csrf
         <div class="flex flex-col gap-4">
             <div class="flex w-full">
-                <label class="w-full text-[#2c2c2c] text-lg font-semibold font-['Inter'] flex flex-col gap-3"
+                <label class="w-full text-lg font-semibold flex flex-col gap-3"
                        for="csvFile">Importer le fichier au format CSV
                     <input id="csvFile"
                            name="csvFile"
@@ -47,15 +47,6 @@
 
                     </table>
                 </div>
-            </div>
-        @endif
-
-        @if (session()->has('message'))
-            <div class="alert alert-success mt-4">{{ session('message') }}</div>
-        @endif
-        @if ($errors->any())
-            <div class="alert alert-danger mt-4">
-                {{ implode(', ', $errors->all()) }}
             </div>
         @endif
         <div class="flex justify-between mt-4">
