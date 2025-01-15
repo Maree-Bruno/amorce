@@ -1,3 +1,45 @@
+@import "layout.css";
+@import "nav.css";
+@import "modals.css";
+@import "buttons.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    src: url("/public/fonts/Inter_18pt-Regular.ttf");
+}
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    src: url("/public/fonts/Inter_18pt-Bold.ttf");
+}
+
+:root {
+    --nav-item-background-color: rgba(251, 212, 55, 0.1);
+    --nav-item-font-color: #FBD437;
+    --button-background-color: #FFEA93;
+    --button-confirm-border-color: #FBD437;
+    --button-default-border-color: rgba(0,0,0,0.1);
+    --nav-background-color: #F8F8F8;
+    --modal-bg-color :rgba(217,217,217,0.4);
+    --button-danger-bg-color:rgba(255, 0, 0,0.1);
+    --button-danger-color:rgba(255, 0, 0,1);
+    --button-danger-border-color:rgba(255, 0, 0,0.7);
+}
+.box-focus:focus {
+    border-color: var(--nav-item-font-color);
+    outline: none;
+    box-shadow: 0 0 8px 3px var(--nav-item-background-color);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    transform: scale(1.02);
+}
+.background-color{
+    background-color: var(--nav-item-font-color);
+}
+

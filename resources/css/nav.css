@@ -1,0 +1,42 @@
+.nav-box-shadow{
+    box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.15);
+}
+.nav-background{
+    background-color: var(--nav-background-color);
+}
+
+.nav_item_hover {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    transition: ease-in-out  200ms;
+}
+
+.nav_item_hover:hover {
+    background-color: var(--nav-item-background-color);
+}
+
+.nav_item_hover:hover svg path {
+    stroke: var(--nav-item-font-color);
+    transition: ease-in-out  200ms;
+}
+
+.nav_item_hover:hover p {
+    color: var(--nav-item-font-color);
+    transition: ease-in-out  200ms;
+}
+.nav_item_hover:hover span {
+    color: var(--nav-item-font-color);
+    transition: ease-in-out  200ms;
+}
+.nav_item_hover.active {
+    background-color: var(--nav-item-background-color);
+    font-weight: 700;
+}
+
+.nav_item_hover.active a svg path {
+    stroke: var(--nav-item-font-color);
+}
+
+.nav_item_hover.active a p {
+    color: var(--nav-item-font-color);
+}

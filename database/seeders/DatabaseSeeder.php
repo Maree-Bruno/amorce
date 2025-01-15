@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Transaction;
+use App\Models\Fund;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,11 +14,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        Fund::factory()
+            ->has(Transaction::factory()
+                ->count(1))
+            ->create([
+                'name' => 'Général'
+            ]);
+        Fund::factory()
+            ->has(Transaction::factory()
+                ->count(1))
+            ->create([
+                'name' => 'Fonctionnement'
+            ]);
+        Fund::factory()
+            ->count(4)
+            ->has(Transaction::factory()
+                ->count(1))
+            ->create();
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+        User::factory()->create([
+            'name' => 'Bruno Marée',
+            'email' => 'brunome638@gmail.com',
         ]);
     }
 }
