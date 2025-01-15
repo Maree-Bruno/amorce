@@ -49,13 +49,11 @@
                                 class="w-full border border-slate-300 rounded-lg">
                             <option value="" selected>Sélectionner un fond</option>
                             @foreach($funds as $fund)
-                                @unless($fund->isProtected())
                                     @if($fund->id != $form->benefit_fund_id)
-                                        <option value="{{ $fund->id }}" wire:key="{{ $fund->id }}">
+                                        <option value="{{ $fund->id }}" wire:key="deficit-{{ $fund->id }}">
                                             {{ $fund->name }}
                                         </option>
                                     @endif
-                                @endunless
                             @endforeach
                         </select>
                         @error('form.deficit_fund_id')
@@ -80,13 +78,11 @@
                                 class="w-full border border-slate-300 rounded-lg">
                             <option value="" selected>Sélectionner un fond</option>
                             @foreach($funds as $fund)
-                                @unless($fund->isProtected())
                                     @if($fund->id != $form->deficit_fund_id)
-                                        <option value="{{ $fund->id }}" wire:key="{{ $fund->id }}">
+                                        <option value="{{ $fund->id }}" wire:key="benefit-{{ $fund->id }}">
                                             {{ $fund->name }}
                                         </option>
                                     @endif
-                                @endunless
                             @endforeach
                         </select>
                         @error('form.benefit_fund_id')

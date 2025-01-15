@@ -40,7 +40,7 @@ class BankTransfert extends Component
 
     public function mount()
     {
-        $this->funds = FundModel::all();
+        $this->funds = FundModel::get();
     }
 
     public function save()
