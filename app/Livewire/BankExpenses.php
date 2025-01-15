@@ -49,10 +49,8 @@ class BankExpenses extends Component
     public function save()
     {
         $this->validate();
-        // Force le montant de la dépense à être négatif
         $this->form->amount = -abs($this->form->amount);
 
-        // Puis on stocke
         $this->form->store();
 
         $this->feedback = 'Dépense enregistrée !';
