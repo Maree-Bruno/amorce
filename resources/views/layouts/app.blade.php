@@ -10,8 +10,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
     <link rel="icon" href="{{URL('/images/favicon-96x96.png')}}">
-    <script src="{{ mix('js/app.js') }}"></script>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="main-template flex">
 <h1 class="sr-only">{{ config('app.name') }}</h1>
