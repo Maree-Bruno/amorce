@@ -34,7 +34,7 @@ class EditFund extends Component
 
     public function updatedFundId($value)
     {
-        $fund = Fund::where('name', $value)->first(); // Fetch fund by name
+        $fund = Fund::where('name', $value)->first();
 
         if ($fund) {
             $this->newFundName = $fund->name;

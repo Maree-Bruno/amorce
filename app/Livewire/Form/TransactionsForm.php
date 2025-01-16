@@ -31,6 +31,16 @@ class TransactionsForm extends Form
     }
 
 
+
+    public function rules()
+    {
+        return [
+            'amount' => 'required|numeric',
+            'date' => 'required',
+            'description' => 'nullable',
+        ];
+    }
+
     public function update()
     {
         $this->validate();
