@@ -5,9 +5,9 @@
 'showCreateSpent' :false,
 'showCreateTransfer' : false,
 }">
-    <div class="flex justify-between items-center">
+    <div class="flex flex-col md:flex-row justify-between items-center">
         <h2 class="text-black text-5xl font-bold p-2.5">Fonds</h2>
-        <div class="relative">
+        <div class="relative mt-4 md:mt-0">
             <x-button.secondary-button class="buttons-confirm shadow-md" icon="plus" @click="showLittleModal = true">
                 Ajouter
             </x-button.secondary-button>
@@ -41,7 +41,7 @@
             </x-modals.little-modal>
         </div>
     </div>
-    <livewire:fund-table :fund="$fund" name="fund-table" />
+    <livewire:fund-table :fund="$fund" name="fund-table"/>
     <div>
         <div x-show="showCreateDonation" x-cloak>
             <livewire:bank-create-donation/>

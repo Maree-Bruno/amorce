@@ -17,7 +17,7 @@
 <body class="background-color flex justify-center items-center flex-col">
 <div class="flex justify-center items-center">
     <figure class="mt-8 max-w-max" href="">
-        <img src="{{URL('images/logo.png')}}" alt="Logo de l'amorce" class="h-[182px]">
+        <img src="{{URL('images/logo.webp')}}" alt="Logo de l'amorce" class="h-40 w-auto" width="2000" height="827">
     </figure>
 </div>
 <div class=" w-1/3 bg-white p-10 rounded-2xl flex flex-col items-center modal-box-shadow ">

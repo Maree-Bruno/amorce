@@ -51,7 +51,7 @@
                         <tbody class="rounded-b-lg">
                         @foreach($this->transactions as $transaction)
                             <tr wire:key="{{$transaction->id}}">
-                                <td class="border border-slate-200  w-[120px]">
+                                <td class="border border-slate-200 ">
                                     <a class="flex items-center px-4 py-2" href="{{route('transactions.edit',
                                     ['transaction' =>
                                     $transaction->id])}}"
@@ -65,7 +65,7 @@
                                         {{ $transaction->description }}
                                     </a>
                                 </td>
-                                <td class="border border-slate-200  text-right w-[120px]" style="color:
+                                <td class="border border-slate-200" style="color:
                                 {{$transaction->amount < 0 ? 'red' : 'green'}};">
                                     <a class="flex items-center px-4 py-2" href="{{route('transactions.edit',
                                     ['transaction' =>

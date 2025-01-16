@@ -4,7 +4,8 @@ overflow-y-auto md:block">
     <h2 class="sr-only">Navigation</h2>
     <div class="flex flex-col justify-start items-center flex-shrink-0 min-h-screen max-h-screen gap-6">
         <a class="mt-8" href="{{ route('dashboard') }}">
-            <img src="{{URL('images/logo.png')}}" alt="Logo de l'amorce" class="max-h-fit max-w-fit w-36">
+            <img src="{{URL('images/logo.webp')}}" alt="Logo de l'amorce" class="max-h-fit max-w-fit w-36" width="2000"
+                 height="827">
         </a>
         <ul class=" flex flex-col justify-center gap-3">
             <livewire:navigations.nav-item icon="home" url="/dashboard" slot="Tableau de bord"/>
