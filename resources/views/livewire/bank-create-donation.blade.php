@@ -59,12 +59,12 @@
                     </textarea>
                 </div>
             </div>
-            <div class="flex justify-between mt-4">
-                <x-button.secondary-button icon="close" class="buttons-default self-start" @click="showCreateDonation
+            <div class="flex justify-between mt-4 gap-2">
+                <x-button.secondary-button :responsive="true" icon="close" class="buttons-default self-start" @click="showCreateDonation
                 =false">
                     Annuler
                 </x-button.secondary-button>
-                <x-button.button icon="validate" class="buttons-confirm self-end"  @click="click = true; setTimeout(
+                <x-button.button :responsive="true" icon="validate" class="buttons-confirm self-end"  @click="click = true; setTimeout(
                 () => click = false, 1000)">
                     Confirmer
                 </x-button.button>

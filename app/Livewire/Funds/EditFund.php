@@ -31,7 +31,7 @@ class EditFund extends Component
             $this->newFundName = $fund ? $fund->name : '';
         }
     }
-    
+
 
     public function update()
     {
