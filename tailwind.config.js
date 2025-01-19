@@ -17,6 +17,11 @@ export default {
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                yellow:'#FBD437',
+                light_yellow:'#FFEA93',
+                very_light_yellow:'rgba(251, 212, 55, 0.1)',
+            },
         },
     },
 

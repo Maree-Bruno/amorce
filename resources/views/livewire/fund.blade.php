@@ -1,17 +1,19 @@
-<div x-data="{
+<div class="flex flex-col flex-1" x-data="{
 'showLittleModal': false,
 'showCreateDonation' : false,
 'showCreateDonations' : false,
 'showCreateSpent' :false,
 'showCreateTransfer' : false,
 }">
-    <div class="flex justify-between items-center">
-        <h2 class="text-black text-5xl font-bold p-2.5">Fonds</h2>
-        <div class="relative">
-            <x-button.secondary-button class="buttons-confirm shadow-md" icon="plus" @click="showLittleModal = true">
+    <div class="flex items-center gap-10 xl:justify-between">
+        <h2 class="text-black text-3xl font-bold p-2.5 xl:text-5xl">Fonds</h2>
+        <div class="mr-auto">
+            <x-button.secondary-button :responsive="true" class="buttons-confirm shadow-md relative" icon="plus"
+                                       @click="showLittleModal =
+            true">
                 Ajouter
             </x-button.secondary-button>
-            <x-modals.little-modal class="left-[calc(50%-100px)] w-[300px]" x-show="showLittleModal">
+            <x-modals.little-modal x-show="showLittleModal">
                 <div class="flex flex-col gap-2 items-start">
                     <x-button.secondary-button
                         class="button-nav justify-start"
@@ -41,7 +43,7 @@
             </x-modals.little-modal>
         </div>
     </div>
-    <livewire:fund-table :fund="$fund" name="fund-table" />
+    <livewire:fund-table :fund="$fund" name="fund-table"/>
     <div>
         <div x-show="showCreateDonation" x-cloak>
             <livewire:bank-create-donation/>

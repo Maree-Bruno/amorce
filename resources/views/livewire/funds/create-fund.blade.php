@@ -1,9 +1,9 @@
 <x-modals.modal>
-    <h4 class="text-2xl font-semibold">Créer un fond</h4>
+    <h4 class="xl:text-2xl font-semibold">Créer un fond</h4>
     <form wire:submit="save" class="mt-4">
         @csrf
         <div class="flex flex-col gap-4">
-            <label for="name" class=" text-lg font-semibold ">Nom du fond</label>
+            <label for="name" class=" xl:text-lg font-semibold ">Nom du fond</label>
             <input type="text"
                    name="name"
                    id="name"
