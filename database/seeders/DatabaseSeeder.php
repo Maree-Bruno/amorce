@@ -15,25 +15,20 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Fund::factory()
-            ->has(Transaction::factory()
-                ->count(1))
             ->create([
                 'name' => 'Général'
             ]);
         Fund::factory()
-            ->has(Transaction::factory()
-                ->count(1))
             ->create([
                 'name' => 'Fonctionnement'
             ]);
-        Fund::factory()
-            ->count(4)
-            ->has(Transaction::factory()
-                ->count(1))
-            ->create();
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Dominique Vilain',
+            'email' => 'dominique.vilain@hepl.be',
+        ]);
+        User::factory()->create([
+            'name' => 'Michaël Lecerf',
+            'email' => 'michael@lecerf.be',
         ]);
         User::factory()->create([
             'name' => 'Bruno Marée',

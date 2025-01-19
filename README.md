@@ -1,66 +1,32 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ⚙️L'amorce⚙️
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Application de Gestion Interne pour une ASBL
 
-## About Laravel
+### 📝Description📝
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Cette application est conçue pour centraliser et automatiser la gestion interne d'une fondation fonctionnant avec des bénévoles. Elle offre des outils pour gérer les fonds financiers, suivre les dons et effectuer diverses tâches administratives. L'objectif principal est de réduire le temps de travail manuel et de simplifier les processus pour les équipes bénévoles.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🧑‍💻Fonctionnalités Principales🧑‍💻
 
-## Learning Laravel
+#### 1. Gestion Financière
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Suivi des Fonds** : L'application permet de gérer un compte bancaire unique, subdivisé en plusieurs "fonds virtuels" tels que le fonds général, le fonds de fonctionnement et des fonds spécifiques. Cette structuration facilite le suivi précis des ressources financières.
+- **Importation des Extraits Bancaires** : Grâce à l'intégration de fichiers CSV, l'application enregistre automatiquement les transactions tout en évitant les doublons. Cette fonctionnalité assure une mise à jour efficace et précise des données financières.
+- **Anonymisation des Dons** : Pour respecter la confidentialité des donateurs, l'application traite les données de manière à anonymiser les informations sensibles, garantissant ainsi la protection de la vie privée des contributeurs.
+- **Prélèvement de Contributions** : L'application offre la possibilité d'attribuer un pourcentage des fonds spécifiques au fonds général, facilitant ainsi une redistribution équitable et transparente des ressources.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+#### 2. Gestion des Détentes (Non Implémentée)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Tirage au Sort** : Une fonctionnalité prévue pour sélectionner aléatoirement des membres pour participer aux "détentes", assurant une rotation équitable et démocratique des participants.
+- **Critères d'Éligibilité** : Le système de tirage au sort prendra en compte l'historique des dons et les participations antérieures pour déterminer l'éligibilité des membres, garantissant ainsi une participation diversifiée et équitable.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+### 📈Améliorations Futures📈
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Implémentation des Détentes** : Développement de la fonctionnalité de gestion et de tirage au sort pour les réunions de distribution, renforçant la participation collaborative.
+- **Amélioration de l'UI/UX** : Optimisation des interfaces utilisateur pour une expérience plus intuitive et conviviale, facilitant l'adoption et l'utilisation quotidienne.
+---
