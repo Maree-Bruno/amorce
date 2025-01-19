@@ -30,3 +30,7 @@ Cette application est conçue pour centraliser et automatiser la gestion interne
 - **Implémentation des Détentes** : Développement de la fonctionnalité de gestion et de tirage au sort pour les réunions de distribution, renforçant la participation collaborative.
 - **Amélioration de l'UI/UX** : Optimisation des interfaces utilisateur pour une expérience plus intuitive et conviviale, facilitant l'adoption et l'utilisation quotidienne.
 ---
+
+### Lien vers la maquette
+
+https://www.figma.com/design/w5HhTgYXaOMaWqdbboOL9y/Projet-Web?node-id=81-424&t=WvAFC0Q1g442J84O-1
