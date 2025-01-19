@@ -22,7 +22,7 @@
             <div class="alert alert-danger text-red-500">{{ $message }}</div>
             @enderror
         </div>
-        <div class="flex flex-row justify-between">
+        <div class="flex flex-col lg:flex-row justify-between gap-2">
             <a href="{{ route('login') }}" class="underline place-self-center box-focus">Déja un compte ?</a>
             <x-button.button class="buttons-confirm place-self-center box-focus">S'inscrire</x-button.button>
         </div>

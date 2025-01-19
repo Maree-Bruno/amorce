@@ -22,26 +22,41 @@ class Calendar extends Component
     public $selectedMonth;
     public $selectedYear;
 
+    public $yearRange = []; // Stocke la plage d'années
+
     public function mount()
     {
         $this->currentMonth = now()->month;
         $this->currentYear = now()->year;
         $this->selectedMonth = $this->currentMonth;
         $this->selectedYear = $this->currentYear;
+
+        // Initialiser la plage d'années
+        $this->yearRange = range($this->currentYear - 40, $this->currentYear + 40);
+
         $this->currentDate = now()->format('Y-m-d');
-        $this->selectedDate = $this->currentDate; // Initialiser selectedDate
+        $this->selectedDate = $this->currentDate;
         $this->generateCalendar();
-        $this->eventsOfTheDay = Event::whereDate('start_time', $this->selectedDate)->get();
     }
+
+
 
 
     public function jumpToMonth()
     {
         $this->currentMonth = $this->selectedMonth;
-        $this->currentYear = $this->selectedYear;
         $this->generateCalendar();
     }
 
+    public function jumpToYear()
+    {
+        if (!is_numeric($this->selectedYear) || $this->selectedYear < 1900 || $this->selectedYear > 2100) {
+            $this->selectedYear = $this->currentYear;
+        }
+
+        $this->currentYear = (int)$this->selectedYear;
+        $this->generateCalendar();
+    }
 
 
     public function generateCalendar()
@@ -67,10 +82,8 @@ class Calendar extends Component
 
         $this->calendarDays = $days;
 
-        // Mettre à jour les événements du jour
         $this->eventsOfTheDay = Event::whereDate('start_time', $this->selectedDate)->get();
     }
-
 
     public function previousMonth()
     {
@@ -82,10 +95,8 @@ class Calendar extends Component
         $this->selectedMonth = $this->currentMonth;
         $this->selectedYear = $this->currentYear;
         $this->generateCalendar();
-
-        // Rafraîchir les événements du jour
-        $this->eventsOfTheDay = Event::whereDate('start_time', $this->selectedDate)->get();
     }
+
     public function nextMonth()
     {
         $this->currentMonth++;
@@ -96,9 +107,6 @@ class Calendar extends Component
         $this->selectedMonth = $this->currentMonth;
         $this->selectedYear = $this->currentYear;
         $this->generateCalendar();
-
-        // Rafraîchir les événements du jour
-        $this->eventsOfTheDay = Event::whereDate('start_time', $this->selectedDate)->get();
     }
 
     public function addEvent()
@@ -159,7 +167,6 @@ class Calendar extends Component
         $event->delete();
 
         $this->generateCalendar();
-        $this->eventsOfTheDay = Event::whereDate('start_time', $this->selectedDate)->get();
     }
 
     public function selectDay($date)
@@ -167,7 +174,6 @@ class Calendar extends Component
         $this->selectedDate = $date;
         $this->eventsOfTheDay = Event::whereDate('start_time', $date)->get();
 
-        // Remplir automatiquement le champ de début avec la date sélectionnée
         $this->start_time = Carbon::parse($date)->format('Y-m-d\TH:i');
     }
 
@@ -199,8 +205,9 @@ class Calendar extends Component
         ];
 
         return view('livewire.calendar.calendar', [
-            'monthName' => $months[$this->currentMonth], // Ajout du nom du mois
+            'monthName' => $months[$this->currentMonth],
+            'months' => $months,
+            'currentYear' => $this->currentYear,
         ]);
     }
-
 }

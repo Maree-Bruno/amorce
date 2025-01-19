@@ -1,5 +1,5 @@
 <x-modals.modal>
-    <h3 class= "text-2xl font-semibold">Ajouter plusieurs dons</h3>
+    <h3 class="text-2xl font-semibold">Ajouter plusieurs dons</h3>
     <form wire:submit.prevent="import" class="mt-4">
         @csrf
         <div class="flex flex-col gap-4">
@@ -35,7 +35,8 @@
                                 <td class="border border-slate-300 px-4 py-2">{{ $record[8] }}</td>
                                 <td class="border border-slate-300 px-4 py-2">{{ $record[2] }}</td>
                                 <td class="border border-slate-300 px-4 py-2">
-                                    <select wire:model="selectedFunds.{{ $index }}" class="border border-slate-200 p-2 rounded-lg w-full">
+                                    <select wire:model="selectedFunds.{{ $index }}"
+                                            class="border border-slate-200 p-2 rounded-lg w-full">
                                         @foreach($funds as $fund)
                                             <option value="{{ $fund->id }}">{{ $fund->name }}</option>
                                         @endforeach
@@ -49,9 +50,15 @@
                 </div>
             </div>
         @endif
-        <div class="flex justify-between mt-4">
-            <a href="" class="buttons p-2.5 flex-row flex-auto justify-center items-center gap-2 flex nav_item_hover buttons-default" wire:navigate>Annuler</a>
-            <x-button.button class="buttons-confirm" wire:click="import">Confirmer</x-button.button>
+        <div class="flex justify-between mt-4 gap-2">
+            <x-button.secondary-button :responsive="true" icon="close" class="buttons-default self-start"
+                                       @click="showCreateDonations
+                =false">
+                Annuler
+            </x-button.secondary-button>
+            <x-button.button :responsive="true" icon="validate" class="buttons-confirm"
+                             wire:click="import">Confirmer
+            </x-button.button>
         </div>
     </form>
 </x-modals.modal>

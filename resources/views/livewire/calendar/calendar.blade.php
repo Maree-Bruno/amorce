@@ -1,56 +1,43 @@
 <div class="flex flex-col w-full gap-6">
-    <h2 class="text-5xl font-bold p-2.5">Calendrier</h2>
-    <!-- Section principale -->
-    <div class="flex flex-row w-full justify-between gap-6">
-        <!-- Calendrier -->
-        <div class="w-10/12 bg-white rounded-lg shadow-md p-6">
-            <!-- Navigation des mois -->
-            <div class="flex items-center justify-between mb-6">
-                <x-button.secondary-button wire:click="previousMonth" class="buttons-confirm">
-                    ← Mois précédent
+    <div class="flex flex-col w-full justify-between gap-6 xl:flex-row">
+        <div class="bg-white rounded-lg shadow-md p-6 xl:w-10/12">
+            <div class="flex items-center justify-between gap-2 mb-6 xl:flex-row">
+                <x-button.secondary-button :responsive="true" wire:click="previousMonth" class="buttons-confirm" icon="previous">
+                     Mois précédent
                 </x-button.secondary-button>
-                <div class="flex">
+                <div class="flex flex-col xl:flex-row gap-2">
                     <select wire:model="selectedMonth" wire:change="jumpToMonth"
                             class="w-full border border-slate-300 rounded-lg">
-                        @foreach(range(1, 12) as $month)
-                            <option autocapitalize="on" value="{{ $month }}">{{ \Carbon\Carbon::create()->month
-                            ($month)->locale('fr')
-                            ->translatedFormat('F') }}</option>
+                        @foreach(range(1, 12) as $monthNumber)
+                            <option value="{{ $monthNumber }}">{{ $months[$monthNumber] }}</option>
                         @endforeach
                     </select>
-
-                    <!-- Sélection de l'année -->
-                    <select wire:model="selectedYear" wire:change="jumpToMonth"
-                            class="border border-slate-300 rounded-lg">
-                        @foreach(range($currentYear - 10, $currentYear + 10) as $year)
+                    <select wire:model="selectedYear" wire:change="jumpToYear" class="border border-slate-300 rounded-lg">
+                        @foreach($yearRange as $year)
                             <option value="{{ $year }}">{{ $year }}</option>
                         @endforeach
                     </select>
-
                 </div>
-                <x-button.secondary-button wire:click="nextMonth" class="buttons-confirm">
-                    Mois suivant →
+                <x-button.secondary-button :responsive="true" wire:click="nextMonth" class="buttons-confirm"
+                                           subicon="next">
+                    Mois suivant
                 </x-button.secondary-button>
             </div>
 
-            <!-- Grille du calendrier -->
             <div class="grid grid-cols-7 gap-2 relative">
-                <!-- Entêtes des jours -->
                 @foreach(['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'] as $day)
-                    <div class="text-center font-bold">{{ $day }}</div>
+                    <div class="text-center font-bold sr-only xl:not-sr-only">{{ $day }}</div>
                 @endforeach
 
-                <!-- Jours et événements -->
                 @foreach($calendarDays as $day)
                     <div
-                        class="p-4 border rounded-lg text-center
+                        class=" border rounded-lg text-center xl:p-4
            {{ $day['date'] === $currentDate ? 'buttons-confirm  font-bold' : 'bg-gray-50' }} buttons-default cursor-pointer
            relative" wire:click="selectDay('{{ $day['date'] }}')">
                         <div class="font-semibold">{{ $day['day'] }}</div>
-                        <!-- Pastille rouge si événements -->
                         @if(count($day['events']) > 0)
                             <div
-                                class="absolute top-1 right-1 w-3 h-3 bg-red-500 rounded-full"
+                                class="absolute top-0  w-3 h-3 bg-red-500 rounded-full"
                                 title="Nombre d'événements : {{ count($day['events']) }}"
                             ></div>
                         @endif
@@ -59,13 +46,11 @@
             </div>
         </div>
         @if($selectedDate)
-            <!-- Formulaire d'ajout ou de modification -->
             <div class="w-full bg-white rounded-lg shadow-md p-6">
                 <h3 class="text-xl font-bold mb-4">
                     {{ $editingEventId ? 'Modifier l\'événement' : 'Ajouter un événement' }}
                 </h3>
                 <form wire:submit.prevent="{{ $editingEventId ? 'updateEvent' : 'addEvent' }}" class="space-y-4">
-                    <!-- Titre -->
                     <div>
                         <label class="block text-base font-semibold">Titre</label>
                         <input type="text" wire:model="title"
@@ -73,7 +58,6 @@
                                placeholder="Titre de l'événement" required>
                     </div>
 
-                    <!-- Description -->
                     <div>
                         <label class="block text-base font-semibold">Description</label>
                         <textarea wire:model="description"
@@ -81,8 +65,7 @@
                                   placeholder="Description de l'événement"></textarea>
                     </div>
 
-                    <!-- Dates -->
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-2">
                         <div>
                             <label class="block text-base font-semibold">Début</label>
                             <input type="datetime-local" wire:model="start_time"
@@ -96,7 +79,6 @@
                         </div>
                     </div>
 
-                    <!-- Boutons -->
                     <div class="flex justify-between">
                         @if($editingEventId)
                             <x-button.secondary-button wire:click="cancelEdit"
@@ -111,10 +93,7 @@
                 </form>
             </div>
         @endif
-
-
     </div>
-    <!-- Événements sélectionnés -->
     <div class="w-full bg-white rounded-lg shadow-md p-6">
         <h3 class="text-xl font-bold mb-4">
             Événements pour le {{ \Carbon\Carbon::parse($selectedDate)->format('d/m/Y') }}
@@ -130,7 +109,7 @@
                             - {{ optional($event->end_time)->format('d-m-Y H:i') }}
                         </div>
                     </div>
-                    <div class="flex space-x-4 justify-between">
+                    <div class="flex justify-between gap-2 flex-col xl:flex-row">
                         <x-button.secondary-button wire:click="editEvent({{ $event->id }})" wire
                                                    class="buttons-confirm" icon="edit">
                             Modifier

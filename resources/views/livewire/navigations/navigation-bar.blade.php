@@ -1,11 +1,19 @@
 @php use Illuminate\Support\Facades\URL; @endphp
 <nav x-data="{ currentUrl: '{{ URL::current() }}'}" class="flex flex-col justify-start flex-shrink-0
-overflow-y-auto md:block">
+overflow-y-auto">
     <h2 class="sr-only">Navigation</h2>
     <div class="flex flex-col justify-start items-center flex-shrink-0 min-h-screen max-h-screen gap-6">
         <a class="mt-8" href="{{ route('dashboard') }}">
-            <img src="{{URL('images/logo.png')}}" alt="Logo de l'amorce" class="max-h-fit max-w-fit w-36">
+            <img
+                src="{{URL('images/logo.webp')}}"
+                alt="Logo de l'amorce"
+                class="max-h-fit max-w-fit w-36 hidden xl:block">
+            <img
+                src="{{URL('images/favicon-96x96.png')}}"
+                alt="Logo de l'amorce"
+                class="max-h-fit max-w-fit w-5 xl:sr-only">
         </a>
+        <div class="border-b border-slate-200 w-full xl:sr-only"></div>
         <ul class=" flex flex-col justify-center gap-3">
             <livewire:navigations.nav-item icon="home" url="/dashboard" slot="Tableau de bord"/>
             <livewire:navigations.nav-item icon="bank" url="/funds/" slot="Fonds"/>
@@ -18,7 +26,7 @@ overflow-y-auto md:block">
             <li>
                 <form action="{{route('logout')}}" method="post">
                     @csrf
-                    <x-button.button icon="logout" class="w-full button-nav">Se déconnecter</x-button.button>
+                    <x-button.button :responsive="true" icon="logout" class="w-full button-nav">Se déconnecter</x-button.button>
                 </form>
             </li>
         </ul>

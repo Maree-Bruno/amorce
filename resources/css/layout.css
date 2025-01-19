@@ -1,5 +1,4 @@
 .main-template {
-    min-height: 100vh;
     display: grid;
     grid-template-areas: "sidebar main-content";
     grid-template-columns: 256px 1fr;
@@ -13,4 +12,5 @@
 
 .main-content {
     grid-area: main-content;
+    width: calc(100vw - 10%);
 }

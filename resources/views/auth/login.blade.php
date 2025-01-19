@@ -2,15 +2,17 @@
     <form class="w-full flex flex-col" action="{{route('login')}}" method="post">
         @csrf
         <div class="flex flex-col mb-5">
-            <x-form.input-label for="email" class="">Email</x-form.input-label>
-            <input type="email" name="email" id="email" placeholder="example@example.com" class="rounded-lg box-focus">
+            <x-form.input-label for="email" class="text-sm">Email</x-form.input-label>
+            <input type="email" name="email" id="email" placeholder="example@example.com" class="rounded-lg box-focus
+             text-xs">
             @error('email')
             <div class="alert alert-danger text-red-500">{{ $message }}</div>
             @enderror
         </div>
         <div class="flex flex-col mb-3">
-            <x-form.input-label for="password" class="">Mot de passe</x-form.input-label>
-            <input type="password" name="password" id="password" placeholder="PassW0rd8!" class="rounded-lg box-focus">
+            <x-form.input-label for="password" class="text-sm">Mot de passe</x-form.input-label>
+            <input type="password" name="password" id="password" placeholder="PassW0rd8!" class="rounded-lg box-focus
+             text-xs">
             @error('password')
             <div class="alert alert-danger text-red-500">{{ $message }}</div>
             @enderror
@@ -20,17 +22,12 @@
                 <input id="remember_me" type="checkbox"
                        class="rounded focus:outline-none checkbox"
                        name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Se souvenir de moi</span>
+                <span class="ms-2 text-xs text-gray-600 dark:text-gray-400">Se souvenir de moi</span>
             </label>
         </div>
-        <div class="flex flex-row justify-between items-center">
-
-            <a href="{{ route('password.request') }}" class="underline box-focus">Mot de passe oublié ?</a>
+        <div class="flex flex-col lg:flex-row justify-between items-center gap-2">
+            <a href="{{ route('password.request') }}" class="underline box-focus text-xs">Mot de passe oublié ?</a>
             <x-button.button class="buttons-confirm box-focus">Se connecter</x-button.button>
-        </div>
-        <div class="flex flex-col gap-4 items-center justify-center mt-4">
-            <a href="{{ route('register') }}" class="underline box-focus">Pas encore de
-                compte ?</a>
         </div>
     </form>
 </x-guest-layout>

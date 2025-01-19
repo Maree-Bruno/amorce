@@ -3,11 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', static function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', static function () {
     return view('welcome');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

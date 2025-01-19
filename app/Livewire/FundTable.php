@@ -33,7 +33,8 @@ class FundTable extends Component
         return $this->fund
             ->hasMany(Transaction::class, 'fund_id')
             ->orderBy($this->sortField, $this->sortDirection)
-            ->paginate($this->perPage);
+            ->paginate($this->perPage)
+            ->onEachSide(0);
     }
 
     public function updateTotalAmount(): void
@@ -42,6 +43,7 @@ class FundTable extends Component
             ->transactions()
             ->sum('amount');
     }
+
     public function sort($field): void
     {
         if ($this->sortField === $field) {
@@ -51,11 +53,13 @@ class FundTable extends Component
         }
         $this->sortField = $field;
     }
+
     public function refreshFunds()
     {
         $this->updateTotalAmount();
         $this->resetPage();
     }
+
     public function render()
     {
         return view('livewire.fund-table', [

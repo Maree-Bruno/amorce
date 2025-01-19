@@ -12,7 +12,7 @@ class EditFund extends Component
     public $feedback = '';
 
     protected $rules = [
-        'fundId' => 'required|exists:funds,name', // Validate by name
+        'fundId' => 'required|exists:funds,id',
         'newFundName' => 'required|string|max:255',
     ];
 
@@ -32,41 +32,28 @@ class EditFund extends Component
         }
     }
 
-    public function updatedFundId($value)
-    {
-        $fund = Fund::where('name', $value)->first();
-
-        if ($fund) {
-            $this->newFundName = $fund->name;
-        } else {
-            $this->newFundName = '';
-        }
-    }
-
 
     public function update()
     {
         $this->validate();
 
-        $fund = Fund::where('name', $this->fundId)->first(); // Fetch by name
+        $fund = Fund::find($this->fundId);
 
-        if (!$fund) {
-            session()->flash('error', 'Le fond n\'existe pas.');
-            return;
+        if ($fund) {
+            $fund->name = $this->newFundName;
+            $fund->save();
+
+            session()->flash('message', 'Le fond a été mis à jour avec succès.');
+        } else {
+            $this->feedback = 'Erreur : Le fond est introuvable.';
         }
-
-        $fund->name = $this->newFundName;
-        $fund->save();
-
-        session()->flash('message', 'Le fond a été mis à jour avec succès.');
         return $this->redirect('/funds');
     }
-
 
     public function render()
     {
         return view('livewire.funds.edit-fund', [
-            'funds' => Fund::all(),
+            'funds' => Fund::all(), // Return all funds to populate dropdown
         ]);
     }
 }

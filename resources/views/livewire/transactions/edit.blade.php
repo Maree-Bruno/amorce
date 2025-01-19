@@ -1,12 +1,12 @@
 <x-modals.modal>
     <form wire:submit.prevent="save">
-
         @csrf
         <div class="flex flex-col gap-4">
             <div class="flex justify-between items-center">
                 <p class="font-semibold text-xl">{{$transaction->description}}</p>
                 <x-button.secondary-button
-                    class="buttons-danger"
+                    :responsive="true"
+                    class="buttons-danger ml-10"
                     icon="trash"
                     wire:click="deleteTransaction"
                     title="Supprimer cette transaction">
@@ -15,7 +15,7 @@
 
             </div>
             <div class="flex flex-col">
-                <label class=" text-lg font-semibold " for="amount">
+                <label class=" xl:text-lg font-semibold " for="amount">
                     Montant
                 </label>
                 <input class="border border-slate-300 rounded-lg"
@@ -30,7 +30,7 @@
             </div>
             <div class="flex justify-between items-end gap-4">
                 <div class="flex flex-col w-full">
-                    <label class=" text-lg font-semibold " for="fund">
+                    <label class=" xl:text-lg font-semibold " for="fund">
                     </label>
                     <select id="fund"
                             wire:model.blur="form.fund_id"
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="flex flex-col">
-                <label class=" text-lg font-semibold " for="date">
+                <label class=" xl:text-lg font-semibold " for="date">
                     Date
                 </label>
                 <input
@@ -59,7 +59,7 @@
                 @error('form.date') <span class="error text-red-500">{{ $message }}</span> @enderror
             </div>
             <div class="flex flex-col">
-                <label class=" text-lg font-semibold " for="description">
+                <label class=" xl:text-lg font-semibold " for="description">
                     Description
                 </label>
                 <textarea class="border border-slate-300 rounded-lg"
@@ -71,7 +71,7 @@
                     </textarea>
             </div>
         </div>
-        <div class="flex justify-between items-center mt-4">
+        <div class="flex justify-between items-center mt-4 gap-2">
             <x-button.secondary-button
                 class="buttons-default"
                 icon="close"
