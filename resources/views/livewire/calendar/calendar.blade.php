@@ -1,5 +1,4 @@
 <div class="flex flex-col w-full gap-6">
-    <h2 class="text-black text-3xl font-bold p-2.5 xl:text-5xl">Calendrier</h2>
     <div class="flex flex-col w-full justify-between gap-6 xl:flex-row">
         <div class="bg-white rounded-lg shadow-md p-6 xl:w-10/12">
             <div class="flex items-center justify-between gap-2 mb-6 xl:flex-row">
@@ -9,23 +8,18 @@
                 <div class="flex flex-col xl:flex-row gap-2">
                     <select wire:model="selectedMonth" wire:change="jumpToMonth"
                             class="w-full border border-slate-300 rounded-lg">
-                        @foreach(range(1, 12) as $month)
-                            <option autocapitalize="on" value="{{ $month }}">{{ \Carbon\Carbon::create()->month
-                            ($month)->locale('fr')
-                            ->translatedFormat('F') }}</option>
+                        @foreach(range(1, 12) as $monthNumber)
+                            <option value="{{ $monthNumber }}">{{ $months[$monthNumber] }}</option>
                         @endforeach
                     </select>
-
-                    <select wire:model="selectedYear" wire:change="jumpToMonth"
-                            class="border border-slate-300 rounded-lg">
-                        @foreach(range($currentYear - 10, $currentYear + 10) as $year)
+                    <select wire:model="selectedYear" wire:change="jumpToYear" class="border border-slate-300 rounded-lg">
+                        @foreach($yearRange as $year)
                             <option value="{{ $year }}">{{ $year }}</option>
                         @endforeach
                     </select>
-
                 </div>
                 <x-button.secondary-button :responsive="true" wire:click="nextMonth" class="buttons-confirm"
-                                           icon="next">
+                                           subicon="next">
                     Mois suivant
                 </x-button.secondary-button>
             </div>
