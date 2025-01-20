@@ -17,10 +17,10 @@
 <body class="background-color flex justify-center items-center flex-col">
 <div class="flex justify-center items-center">
     <figure class="mt-8" href="">
-        <img src="{{URL('images/logo.png')}}" alt="Logo de l'amorce" class="lg:h-40 w-auto h-30">
+        <img src="{{URL('images/logo.png')}}" alt="Logo de l'amorce" class="lg:h-52 w-auto h-30">
     </figure>
 </div>
-<div class=" w-9/12 bg-white p-8 rounded-2xl flex flex-col items-center modal-box-shadow ">
+<div class=" w-9/12 bg-white p-8 rounded-2xl flex flex-col items-center modal-box-shadow lg:w-1/3">
     {{$slot}}
 </div>
 
