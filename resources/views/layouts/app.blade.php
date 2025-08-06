@@ -12,9 +12,9 @@
     <link rel="icon" href="{{URL('/images/favicon-96x96.png')}}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="main-template flex">
+<body class="main-template flex max-width">
 <h1 class="sr-only">{{ config('app.name') }}</h1>
-<header class="sidebar w-10 bg-slate-50 xl:min-w-52">
+<header class="sidebar w-10 bg-slate-50 md:min-w-52">
     <div class="nav-background p-2 nav-box-shadow flex flex-col items-center xl:p-4">
         <livewire:navigations.navigation-bar/>
     </div>

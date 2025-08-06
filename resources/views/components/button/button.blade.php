@@ -5,7 +5,8 @@
         <x-dynamic-component :component="'icon.' . $icon"/>
     @endif
     @if(!is_null($slot))
-            <span class="{{ $responsive ? 'sr-only xl:not-sr-only truncate font-bold text-left' : 'truncate font-bold' }}">
+            <span class="{{ $responsive ? 'sr-only md:not-sr-only truncate font-bold text-left' : 'truncate font-bold'
+             }}">
         {{ $slot }}
     </span>
     @endif

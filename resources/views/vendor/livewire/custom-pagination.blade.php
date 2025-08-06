@@ -48,31 +48,31 @@
                                 </button>
                             @endif
                         </span>
-<div class="sr-only xl:not-sr-only">
+<div class="sr-only sm:not-sr-only">
 
 
                         {{-- Pagination Elements --}}
-                        @foreach ($elements as $element)
-                            {{-- "Three Dots" Separator --}}
-                            @if (is_string($element))
-                                <span aria-disabled="true">
+    @foreach ($elements as $element)
+        {{-- "Three Dots" Separator --}}
+        @if (is_string($element))
+            <span aria-disabled="true">
                                     <span
                                         class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-semibold ">{{
                                      $element }}</span>
                                 </span>
-                            @endif
+        @endif
 
-                            {{-- Array Of Links --}}
-                            @if (is_array($element))
-                                @foreach ($element as $page => $url)
-                                    <span wire:key="paginator-{{ $paginator->getPageName() }}-page{{ $page }}">
+        {{-- Array Of Links --}}
+        @if (is_array($element))
+            @foreach ($element as $page => $url)
+                <span wire:key="paginator-{{ $paginator->getPageName() }}-page{{ $page }}">
                                         @if ($page == $paginator->currentPage())
-                                            <span aria-current="page">
+                        <span aria-current="page">
                                                 <span class="relative inline-flex items-center px-4 py-2 -ml-px
                                                 text-sm font-semibold buttons-confirm">{{ $page }}</span>
                                             </span>
-                                        @else
-                                            <button type="button" wire:click="gotoPage({{ $page }}, '{{
+                    @else
+                        <button type="button" wire:click="gotoPage({{ $page }}, '{{
                                             $paginator->getPageName() }}')" x-on:click="{{ $scrollIntoViewJsSnippet
                                             }}" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm
                                             font-semibold buttons-default" aria-label="{{ __('Go to page :page',
@@ -80,11 +80,11 @@
                                             $page]) }}">
                                                 {{ $page }}
                                             </button>
-                                        @endif
+                    @endif
                                     </span>
-                                @endforeach
-                            @endif
-                        @endforeach
+            @endforeach
+        @endif
+    @endforeach
 </div>
                         <span>
                             {{-- Next Page Link --}}

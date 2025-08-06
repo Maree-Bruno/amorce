@@ -13,7 +13,7 @@ class BankTransfert extends Component
     public $feedback = '';
 
     protected $rules = [
-        'form.amount' => 'required|numeric|min:0.01',
+        'form.amount' => 'required|numeric|min:1',
         'form.date' => 'required|date',
         'form.deficit_fund_id' => 'required|exists:funds,id|different:form.benefit_fund_id',
         'form.benefit_fund_id' => 'required|exists:funds,id|different:form.deficit_fund_id',
@@ -24,7 +24,7 @@ class BankTransfert extends Component
         return [
             'form.amount.required' => 'Le montant est requis.',
             'form.amount.numeric' => 'Le montant doit être un nombre.',
-            'form.amount.min' => 'Le montant doit être supérieur à 0.01.',
+            'form.amount.min' => 'Le montant ne peut pas être plus petit que 1.',
             'form.date.required' => 'La date est requise.',
             'form.date.date' => 'La date n’est pas valide.',
             'form.deficit_fund_id.required' => 'Veuillez sélectionner un fond déficitaire.',
