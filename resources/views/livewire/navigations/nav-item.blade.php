@@ -5,6 +5,6 @@
         @if(!is_null($icon))
             <x-dynamic-component :component="'icon.'.$icon"/>
         @endif
-        <p class="font-semibold sr-only xl:not-sr-only">{{$slot}}</p>
+        <p class="font-semibold sr-only md:not-sr-only">{{$slot}}</p>
     </a>
 </li>

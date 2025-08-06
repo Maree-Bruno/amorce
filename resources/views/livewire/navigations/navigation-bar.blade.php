@@ -1,20 +1,20 @@
 @php use Illuminate\Support\Facades\URL; @endphp
 <nav x-data="{ currentUrl: '{{ URL::current() }}'}" class="flex flex-col justify-start flex-shrink-0
-overflow-y-auto">
+overflow-y-auto ">
     <h2 class="sr-only">Navigation</h2>
     <div class="flex flex-col justify-start items-center flex-shrink-0 min-h-screen max-h-screen gap-6">
         <a class="mt-8" href="{{ route('dashboard') }}">
             <img
                 src="{{URL('images/logo.webp')}}"
                 alt="Logo de l'amorce"
-                class="max-h-fit max-w-fit w-36 hidden xl:block">
+                class="max-h-fit max-w-fit w-36 hidden md:block">
             <img
                 src="{{URL('images/favicon-96x96.png')}}"
                 alt="Logo de l'amorce"
-                class="max-h-fit max-w-fit w-5 xl:sr-only">
+                class="max-h-fit max-w-fit w-5 md:sr-only">
         </a>
         <div class="border-b border-slate-200 w-full xl:sr-only"></div>
-        <ul class=" flex flex-col justify-center gap-3">
+        <ul class=" flex flex-col gap-3">
             <livewire:navigations.nav-item icon="home" url="/dashboard" slot="Tableau de bord"/>
             <livewire:navigations.nav-item icon="bank" url="/funds/" slot="Fonds"/>
          {{--               <livewire:navigations.nav-item icon="meeting" url="/meetings" slot="Réunion"/>--}}

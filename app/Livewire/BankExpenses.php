@@ -17,10 +17,10 @@ class BankExpenses extends Component
     public function rules()
     {
         return [
-            'form.amount' => ['required', 'numeric'], // Montant obligatoire, doit être un nombre et négatif
-            'form.fund_id' => ['required', 'exists:funds,id'], // Fond obligatoire, doit exister dans la table funds
-            'form.date' => ['required', 'date'], // Date obligatoire et valide
-            'form.description' => ['nullable', 'string', 'max:255'], // Description optionnelle, texte max 255 caractères
+            'form.amount' => ['required', 'numeric'],
+            'form.fund_id' => ['required', 'exists:funds,id'],
+            'form.date' => ['required', 'date'],
+            'form.description' => ['nullable', 'string', 'max:255'],
         ];
     }
     public function messages()

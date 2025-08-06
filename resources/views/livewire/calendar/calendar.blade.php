@@ -1,4 +1,5 @@
 <div class="flex flex-col w-full gap-6">
+    <h2 class="text-black text-3xl font-bold p-2.5 xl:text-5xl">Calendrier</h2>
     <div class="flex flex-col w-full justify-between gap-6 xl:flex-row">
         <div class="bg-white rounded-lg shadow-md p-6 xl:w-10/12">
             <div class="flex items-center justify-between gap-2 mb-6 xl:flex-row">
@@ -7,7 +8,7 @@
                 </x-button.secondary-button>
                 <div class="flex flex-col xl:flex-row gap-2">
                     <select wire:model="selectedMonth" wire:change="jumpToMonth"
-                            class="w-full border border-slate-300 rounded-lg">
+                            class=" border border-slate-300 rounded-lg">
                         @foreach(range(1, 12) as $monthNumber)
                             <option value="{{ $monthNumber }}">{{ $months[$monthNumber] }}</option>
                         @endforeach

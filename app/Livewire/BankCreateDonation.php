@@ -23,7 +23,7 @@ class BankCreateDonation extends Component
     public function rules()
     {
         return [
-            'form.amount' => 'required|numeric|min:0.01',
+            'form.amount' => 'required|numeric|min:1',
             'form.fund_id' => 'required|exists:funds,id',
             'form.date' => 'required|date|before_or_equal:today',
             'form.description' => 'nullable|string|max:500',
@@ -35,7 +35,7 @@ class BankCreateDonation extends Component
         return [
             'form.amount.required' => 'Le montant est obligatoire.',
             'form.amount.numeric' => 'Le montant doit être un nombre valide.',
-            'form.amount.min' => 'Le montant doit être au moins de 0,01€.',
+            'form.amount.min' => 'Le montant doit être au moins de 1€.',
             'form.fund_id.required' => 'Veuillez sélectionner un fond bénéficiaire.',
             'form.fund_id.exists' => 'Le fond sélectionné n’est pas valide.',
             'form.date.required' => 'La date est obligatoire.',
@@ -60,7 +60,7 @@ class BankCreateDonation extends Component
     public function render()
     {
         $this->funds = $this->funds->map(function ($fund) {
-            $fund->formatted_amount = number_format($fund->amount, 2, ',', ' ') . '€';
+            $fund->formatted_amount = number_format($fund->amount, 2, ',', ' ').'€';
             return $fund;
         });
 

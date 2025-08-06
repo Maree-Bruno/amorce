@@ -42,4 +42,6 @@
 .background-color{
     background-color: var(--nav-item-font-color);
 }
-
+.max-width{
+    max-width: 1920px;
+}

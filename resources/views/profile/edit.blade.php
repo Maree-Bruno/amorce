@@ -1,9 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Profil
-        </h2>
-    </x-slot>
+    <h2 class="text-black text-3xl font-bold p-2.5 xl:text-5xl">Profil</h2>
         <div class=" mx-auto sm:px-6 xl:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="">

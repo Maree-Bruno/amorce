@@ -9,8 +9,7 @@
         <h2 class="text-black text-3xl font-bold p-2.5 xl:text-5xl">Fonds</h2>
         <div class="mr-auto">
             <x-button.secondary-button :responsive="true" class="buttons-confirm shadow-md relative" icon="plus"
-                                       @click="showLittleModal =
-            true">
+                                       @click="showLittleModal = true">
                 Ajouter
             </x-button.secondary-button>
             <x-modals.little-modal x-show="showLittleModal">
