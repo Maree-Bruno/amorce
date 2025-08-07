@@ -1,6 +1,6 @@
 <section class="">
     <h3 class="sr-only">Interface des fonds</h3>
-    <div class="w-full border-slate-200 border shadow-md rounded-2xl p-4">
+    <div class="w-full shadow-md rounded-2xl p-4">
         <div
             x-data="{
         updatePerPage() {

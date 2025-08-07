@@ -1,3 +1,4 @@
+
 <div class="flex flex-col flex-1" x-data="{
 'showLittleModal': false,
 'showCreateDonation' : false,
@@ -5,7 +6,7 @@
 'showCreateSpent' :false,
 'showCreateTransfer' : false,
 }">
-    <div class="flex items-center gap-10 xl:justify-between">
+    <div class="flex items-center gap-10">
         <h2 class="text-black text-3xl font-bold p-2.5 xl:text-5xl">Fonds</h2>
         <div class="mr-auto">
             <x-button.secondary-button :responsive="true" class="buttons-confirm shadow-md relative" icon="plus"
