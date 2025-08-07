@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Concerns\HasImageVariants;
+use App\Events\ProfileImageStored;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,13 +13,19 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    use HasImageVariants;
+
     /**
      * Display the user's profile form.
      */
     public function edit(Request $request): View
     {
+        $sizes = config('images.sizes') ?? [];
+        $search = array_key_first($sizes);
         return view('profile.edit', [
             'user' => $request->user(),
+            'sizes' => $sizes,
+            'search' => $search,
         ]);
     }
 
@@ -26,16 +34,29 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
+        $user->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
         }
 
-        $request->user()->save();
+        if ($request->hasFile('image')) {
+            $path = 'users/'.$user->id;
+            $validated['image'] = $request->file('image')->store($path, 'public');
+            $this->makeImageVariants(
+                requestImage: $request->file('image'),
+                originalPath: $validated['image']
+            );
+            ProfileImageStored::dispatch($validated);
+            $user->image = $validated['image'];
+        }
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        $user->save();
+
+        return Redirect::route('profile.edit', $user)->with('status', 'profile-updated');
     }
+
 
     /**
      * Delete the user's account.
