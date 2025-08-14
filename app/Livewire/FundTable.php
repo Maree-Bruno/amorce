@@ -42,6 +42,7 @@ class FundTable extends Component
         $this->total = $this->fund
             ->transactions()
             ->sum('amount');
+
     }
 
     public function sort($field): void

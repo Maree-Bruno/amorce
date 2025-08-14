@@ -49,13 +49,25 @@ class BankExpenses extends Component
     public function save()
     {
         $this->validate();
-        $this->form->amount = -abs($this->form->amount);
 
+        $fund = FundModel::findOrFail($this->form->fund_id);
+
+        $currentTotal = $fund->transactions()->sum('amount');
+
+        $expenseAmount = -abs($this->form->amount);
+
+        if (($currentTotal + $expenseAmount) < 0) {
+            $this->addError('form.amount', 'Cette dépense ferait passer le solde du fond en dessous de zéro.');
+            return;
+        }
+
+        $this->form->amount = $expenseAmount;
         $this->form->store();
 
         $this->feedback = 'Dépense enregistrée !';
         return $this->redirect('/funds');
     }
+
 
 
     public function render()
