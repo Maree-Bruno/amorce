@@ -77,11 +77,41 @@
                         </div>
                     @endif
                 </div>
-                <div>
-                    <x-input-label for="image" :value="__('Image de profile')"></x-input-label>
-                    <input type="file" name="image" id="image" class='border-gray-300 focus:border-indigo-500
+                <div class="flex justify-between gap-8">
+                    <div class="flex flex-col w-full">
+                        <x-input-label for="image" :value="__('Image de profile')"></x-input-label>
+                        <input type="file" name="image" id="image" class='border-gray-300 focus:border-indigo-500
             focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2' :value="old('image', $user->image)">
-                    <x-input-error class="mt-2" :messages="$errors->get('image')"/>
+                        <x-input-error class="mt-2" :messages="$errors->get('image')"/>
+                    </div>
+                    @if($user->role === 'admin')
+                    <div class="flex flex-col w-full">
+                        <x-input-label for="role" :value="__('Role')"></x-input-label>
+                        <select name="role" id="role" class="border-gray-300 focus:border-indigo-500
+            focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2">
+                            <option value="admin">
+                                admin
+                            </option>
+                            <option value="accountant">
+                                accountant
+                            </option>
+                            <option value="user">
+                                user
+                            </option>
+                        </select>
+                    </div>
+                    @else
+                        <div class="flex flex-col w-full">
+                           <p class="block font-medium text-sm text-gray-700">Rôle</p>
+                           <p class="border-gray-300 focus:border-indigo-500
+            focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full p-2">
+                               @if(!$user->role)
+                                   Aucun rôle
+                               @endif
+                               {{$user->role}}
+                           </p>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="flex items-center gap-4">

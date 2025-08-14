@@ -24,10 +24,22 @@
     <div class="flex items-center justify-end mb-2">
         <a href="/profile" class="text-black text-sm rounded-xl nav_item_hover flex items-center justify-center gap-2
         md:text-lg">
-            <img src="{{ asset(Auth::user()->image) }}" alt="Photo de profil de {{ Auth::user()->name }}" class="max-w-6 md:max-w-8 rounded-lg">
-            <p>
-                {{Auth::user()->name}}
-            </p>
+            @if(!Auth::user()->image)
+                <img src="{{asset('/images/default_user.jpg')}}"
+                     alt="{{ Auth::user()->fullname }}"
+                     loading="lazy"
+                     decoding="async"
+                     class="rounded-lg max-w-6 md:max-w-8 ">
+                <p>
+                    {{Auth::user()->name}}
+                </p>
+                @else
+                <img src="{{ asset(Auth::user()->image) }}" alt="Photo de profil de {{ Auth::user()->name }}"
+                     class="max-w-6 md:max-w-8 rounded-lg">
+                <p>
+                    {{Auth::user()->name}}
+                </p>
+            @endif
         </a>
     </div>
     {{ $slot }}
