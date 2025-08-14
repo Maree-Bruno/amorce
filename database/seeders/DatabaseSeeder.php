@@ -23,16 +23,16 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Fonctionnement'
             ]);
         User::factory()->create([
+            'name' => 'Bruno Marée',
+            'email' => 'brunome638@gmail.com',
+        ]);
+        User::factory()->create([
             'name' => 'Dominique Vilain',
             'email' => 'dominique.vilain@hepl.be',
         ]);
         User::factory()->create([
             'name' => 'Michaël Lecerf',
             'email' => 'michael@lecerf.be',
-        ]);
-        User::factory()->create([
-            'name' => 'Bruno Marée',
-            'email' => 'brunome638@gmail.com',
         ]);
     }
 }
