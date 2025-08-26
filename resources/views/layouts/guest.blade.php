@@ -16,7 +16,7 @@
 </head>
 <body class="background-color flex justify-center items-center flex-col">
 <div class="flex justify-center items-center">
-    <figure class="mt-8" href="">
+    <figure class="mt-8">
         <img src="{{URL('images/logo.png')}}" alt="Logo de l'amorce" class="lg:h-52 w-auto h-30">
     </figure>
 </div>
