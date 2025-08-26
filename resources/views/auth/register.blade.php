@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-layout-guest>
     <form method="POST" action="{{ route('register') }}" class="w-full flex flex-col">
         @csrf
         <div class="flex flex-col mb-5">
@@ -27,4 +27,4 @@
             <x-button.button class="buttons-confirm place-self-center box-focus">S'inscrire</x-button.button>
         </div>
     </form>
-</x-guest-layout>
+</x-layout-guest>

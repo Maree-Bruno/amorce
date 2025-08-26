@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-layout-guest>
     <form class="w-full flex flex-col" action="{{route('login')}}" method="post">
         @csrf
         <div class="flex flex-col mb-5">
@@ -33,4 +33,4 @@
             <x-button.button class="buttons-confirm box-focus">Se connecter</x-button.button>
         </div>
     </form>
-</x-guest-layout>
+</x-layout-guest>
