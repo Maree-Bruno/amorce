@@ -15,7 +15,7 @@ Route::middleware('guest')->group(function () {
     Route::get('register', function () {
         return redirect()->route('login');
     });
-    
+
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 

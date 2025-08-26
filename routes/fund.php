@@ -5,7 +5,7 @@ use App\Livewire\Funds\CreateFund;
 use App\Livewire\Funds\EditFund;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     // Route pour créer un fonds
     Route::get('/funds/create', CreateFund::class)->name('fund.create');

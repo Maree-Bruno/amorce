@@ -8,7 +8,7 @@ use App\Livewire\BankTransfert;
 use App\Livewire\Transactions\Edit;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/transactions/create/donation', BankCreateDonation::class)->name('transactions.create.donation');
     Route::get('/transactions/create/donations', BankAddMultipleDonation::class)->name('transactions.create.donations');
     Route::get('/transactions/create/transfer', BankTransfert::class)->name('transactions.create.transfer');
