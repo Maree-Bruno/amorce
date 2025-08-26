@@ -6,7 +6,6 @@ use App\Livewire\BankCreateDonation;
 use App\Livewire\BankExpenses;
 use App\Livewire\BankTransfert;
 use App\Livewire\Transactions\Edit;
-use App\Livewire\Transactions\Transaction;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->group(function () {

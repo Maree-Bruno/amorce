@@ -17,10 +17,10 @@ class BankExpenses extends Component
     public function rules()
     {
         return [
-            'form.amount' => ['required', 'numeric'], // Montant obligatoire, doit être un nombre et négatif
-            'form.fund_id' => ['required', 'exists:funds,id'], // Fond obligatoire, doit exister dans la table funds
-            'form.date' => ['required', 'date'], // Date obligatoire et valide
-            'form.description' => ['nullable', 'string', 'max:255'], // Description optionnelle, texte max 255 caractères
+            'form.amount' => ['required', 'numeric'],
+            'form.fund_id' => ['required', 'exists:funds,id'],
+            'form.date' => ['required', 'date'],
+            'form.description' => ['nullable', 'string', 'max:255'],
         ];
     }
     public function messages()
@@ -49,13 +49,25 @@ class BankExpenses extends Component
     public function save()
     {
         $this->validate();
-        $this->form->amount = -abs($this->form->amount);
 
+        $fund = FundModel::findOrFail($this->form->fund_id);
+
+        $currentTotal = $fund->transactions()->sum('amount');
+
+        $expenseAmount = -abs($this->form->amount);
+
+        if (($currentTotal + $expenseAmount) < 0) {
+            $this->addError('form.amount', 'Cette dépense ferait passer le solde du fond en dessous de zéro.');
+            return;
+        }
+
+        $this->form->amount = $expenseAmount;
         $this->form->store();
 
         $this->feedback = 'Dépense enregistrée !';
         return $this->redirect('/funds');
     }
+
 
 
     public function render()

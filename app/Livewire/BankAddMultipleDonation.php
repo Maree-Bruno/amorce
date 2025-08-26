@@ -41,8 +41,10 @@ class BankAddMultipleDonation extends Component
         ]);
 
         foreach ($this->csvRecords as $index => $record) {
-            $amount = str_replace(',', '', $record[2]);
-            $amount = number_format($amount, 2, '.', '');
+            $amountRaw = $record[2];
+            $amountSanitized = str_replace([' ', ','], ['', '.'], $amountRaw);
+            $amount = number_format((float)$amountSanitized, 2, '.', '');
+
 
 
             $hashedAccount = hash('sha256', $record[3]);

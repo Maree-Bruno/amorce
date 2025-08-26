@@ -1,4 +1,5 @@
-<div class="z-50 absolute inset-0 modal-background-color flex items-center justify-center min-h-screen" x-cloak
+<div class="z-50 absolute inset-0 modal-background-color flex items-center justify-center min-h-dvh 2xl:items-start"
+     x-cloak
      x-transition:enter="motion-safe:ease-out duration-300"
      x-transition:enter-start="opacity-0 translate-x-full"
      x-transition:enter-end="opacity-100 translate-x-0"
@@ -8,7 +9,7 @@
      aria-modal="true"
 >
     <div class="w-10/12 bg-white border border-gray-300 rounded-xl
-        modal-box-shadow p-6 relative z-40 xl:max-w-screen-lg.min-w-96"
+        modal-box-shadow p-6 relative z-40 xl:max-w-screen-lg.min-w-96 2xl:top-14"
          @click.away="
          showModal= false,
          showCreateDonation = false,

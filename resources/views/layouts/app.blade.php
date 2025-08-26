@@ -12,15 +12,36 @@
     <link rel="icon" href="{{URL('/images/favicon-96x96.png')}}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="main-template flex">
+<body class="main-template flex max-width">
 <h1 class="sr-only">{{ config('app.name') }}</h1>
-<header class="sidebar w-10 bg-slate-50 xl:min-w-52">
+<header class="sidebar w-10 bg-slate-50 md:min-w-52">
     <div class="nav-background p-2 nav-box-shadow flex flex-col items-center xl:p-4">
         <livewire:navigations.navigation-bar/>
     </div>
 </header>
 
 <main class="relative flex flex-col p-4 flex-1 main-content xl:p-8 xl:w-full">
+    <div class="flex items-center justify-end mb-2">
+        <a href="/profile" class="text-black text-sm rounded-xl nav_item_hover flex items-center justify-center gap-2
+        md:text-lg">
+            @if(!Auth::user()->image)
+                <img src="{{asset('/images/default_user.jpg')}}"
+                     alt="{{ Auth::user()->fullname }}"
+                     loading="lazy"
+                     decoding="async"
+                     class="rounded-lg max-w-6 md:max-w-8 ">
+                <p>
+                    {{Auth::user()->name}}
+                </p>
+                @else
+                <img src="{{ asset(Auth::user()->image) }}" alt="Photo de profil de {{ Auth::user()->name }}"
+                     class="max-w-6 md:max-w-8 rounded-lg">
+                <p>
+                    {{Auth::user()->name}}
+                </p>
+            @endif
+        </a>
+    </div>
     {{ $slot }}
 </main>
 </body>

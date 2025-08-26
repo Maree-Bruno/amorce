@@ -31,7 +31,7 @@ class FundTable extends Component
     public function transactions()
     {
         return $this->fund
-            ->hasMany(Transaction::class, 'fund_id')
+            ->Transactions()
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate($this->perPage)
             ->onEachSide(0);
@@ -42,6 +42,7 @@ class FundTable extends Component
         $this->total = $this->fund
             ->transactions()
             ->sum('amount');
+
     }
 
     public function sort($field): void
